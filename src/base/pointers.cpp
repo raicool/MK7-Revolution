@@ -70,6 +70,11 @@ namespace base
 			m_Effect_KartEffect_calcTireEffectWheelSpin = handle.as<decltype(m_Effect_KartEffect_calcTireEffectWheelSpin)>();
 		});
 
+		batch.add("Kart::NetData::send", "30 40 2D E9 24 D0 4D E2 00 40 A0 E1 01 50 A0 E1 10 00 8D E2", [this](memory::handle handle)
+		{
+			m_Kart_NetData_send = handle.as<decltype(m_Kart_NetData_send)>();
+		});
+
 		batch.add("Kart::VehicleReact::reactAccidentCommon", "FF 4F 2D E9 0C D0 4D E2 00 40 A0 E1 01 5A 84 E2", [this](memory::handle handle)
 		{
 			m_Kart_VehicleReact_reactAccidentCommon = handle.as<decltype(m_Kart_VehicleReact_reactAccidentCommon)>();

@@ -28,6 +28,7 @@ namespace base
         static void Item_ItemObjBase_setStateSelfMove(Item::ItemObjBase *, sead::Vector2f *);
 		static void Item_ItemObjKouraR_stateInitComeBackDown(Item::ItemObjKouraR *);
         static void Effect_KartEffect_calcTireEffectWheelSpin(Effect::KartEffect *);
+        static void Kart_NetData_send(Kart::NetData *, s32);
         static void Kart_Unit_calcMove(Kart::Unit *, bool, bool);
         static bool Kart_VehicleReact_reactAccidentCommon(Kart::VehicleReact *, Kart::VehicleReact::ECallType, int, int, Kart::VehicleReact::EAcdType, sead::Vector3f *, sead::Vector3f *);
         static void Net_NetworkEngine_sendUnreliableCore(Net::NetworkEngine *, u32, Net::NetworkBuffer *);

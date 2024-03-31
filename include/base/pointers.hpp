@@ -29,6 +29,7 @@ namespace base
 		void *m_Item_ItemObjBase_setStateSelfMove;
 		void *m_Item_ItemObjKouraR_stateInitComeBackDown;
 		void *m_Effect_KartEffect_calcTireEffectWheelSpin;
+		void *m_Kart_NetData_send;
 		void *m_Kart_Unit_calcMove;
 		void *m_Kart_VehicleReact_calcReact_0x20;
 		void *m_Kart_VehicleReact_reactAccidentCommon;

@@ -35,6 +35,7 @@ SOURCES 	:= 	src \
 				src/base/hooks/Item/ItemObjKouraR \
 				src/base/hooks/Item/KartItem \
 				src/base/hooks/Kart/Director \
+				src/base/hooks/Kart/NetData \
 				src/base/hooks/Kart/Unit \
 				src/base/hooks/Kart/VehicleReact \
 				src/base/hooks/Net/NetworkEngine \

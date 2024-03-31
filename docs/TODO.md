@@ -5,14 +5,20 @@ The following document shows a list of ideas that may get implemented in the fut
 - [x] Item Wheel
 	- [ ] Networking part
 - [x] Drop Items
-	- [ ] Other items (Star, Mushroom, Blooper, ...)
+	- [ ] Mode (Drop, Pop, Throw, MKW, ...)
+	- [ ] Drop: other items (Star, Mushroom, Blooper, ...)
+- [ ] Flat Items
+- [ ] Draggable Items (Blue Shell, Fire Flower, ...)
 - [ ] Unrestrict Item Usage (Bullet Bill, respawn, ...)
 - [ ] Controllable Bullet Bill
+- [ ] Item Limiters
 - [ ] Item Guru
 - [ ] Configurable Rapid Fire
-- [ ] No Lightning Flash
+- [ ] Disable Lightning Flashes
 
 ### Kart
+- [ ] Invincibility
+	- [ ] Hazards (Lightning, Blooper, ...)
 - [x] Intangibility
 	- [ ] Modes (Kart, Item, Object)
 - [ ] Micro Kart
@@ -20,7 +26,8 @@ The following document shows a list of ideas that may get implemented in the fut
 - [ ] Free Fly
 - [ ] Future Fly
 - [ ] Trick Anywhere
-- [ ] No Terrain Effects
+- [ ] Disable Terrain Effects
+- [ ] Acceleration Modifier
 
 ### Mode
 - [ ] Drive Out Of Bounds
@@ -28,6 +35,16 @@ The following document shows a list of ideas that may get implemented in the fut
 - [ ] Disable Respawn Black Screen
 - [ ] Disable Lakitu
 - [ ] Coin Modifier
+- [ ] Rave
+
+### Network
+- [x] Invisibility
+	- [ ] Modes (normal, stealth, warp, ...)
+- [ ] Principal ID Modifier (PID, FC, randomizer)
+- [ ] Principal ID Joiner
+- [ ] Force Replacement
+- [ ] Disable Item Delay
+- [ ] VR Extender Fix
 
 ### Sound
 - [ ] Disable Star Music

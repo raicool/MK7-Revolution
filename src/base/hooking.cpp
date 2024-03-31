@@ -13,6 +13,7 @@ namespace base
 		m_Item_ItemObjBase_setStateSelfMove_hook("Item::ItemObjBase::setState_SelfMove", g_pointers->m_Item_ItemObjBase_setStateSelfMove, reinterpret_cast<void *>(&hooks::Item_ItemObjBase_setStateSelfMove)),
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook("Item::ItemObjKouraR::stateInitComeBackDown", g_pointers->m_Item_ItemObjKouraR_stateInitComeBackDown, reinterpret_cast<void *>(&hooks::Item_ItemObjKouraR_stateInitComeBackDown)),
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook("Effect::KartEffect::_calcTireEffect_WheelSpin", g_pointers->m_Effect_KartEffect_calcTireEffectWheelSpin, reinterpret_cast<void *>(&hooks::Effect_KartEffect_calcTireEffectWheelSpin)),
+		m_Kart_NetData_send_hook("Kart::NetData::send", g_pointers->m_Kart_NetData_send, reinterpret_cast<void *>(&hooks::Kart_NetData_send)),
 		m_Kart_Unit_calcMove_hook("Kart::Unit::calcMove", g_pointers->m_Kart_Unit_calcMove, reinterpret_cast<void *>(&hooks::Kart_Unit_calcMove)),
 		m_Kart_VehicleReact_calcReact_0x20_hook("Kart::VehicleReact::calcReact+0x20", g_pointers->m_Kart_VehicleReact_calcReact_0x20, reinterpret_cast<void *>(&hooks::Kart_VehicleReact_calcReact_0x20)),
 		m_Kart_VehicleReact_reactAccidentCommon_hook("Kart::VehicleReact::reactAccidentCommon", g_pointers->m_Kart_VehicleReact_reactAccidentCommon, reinterpret_cast<void *>(&hooks::Kart_VehicleReact_reactAccidentCommon)),
@@ -46,6 +47,7 @@ namespace base
 		m_Item_ItemObjBase_setStateSelfMove_hook.enable();
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook.enable();
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook.enable();
+		m_Kart_NetData_send_hook.enable();
 		m_Kart_Unit_calcMove_hook.enable();
 		m_Kart_VehicleReact_calcReact_0x20_hook.enable();
 		m_Kart_VehicleReact_reactAccidentCommon_hook.enable();
@@ -68,6 +70,7 @@ namespace base
 		m_Kart_VehicleReact_reactAccidentCommon_hook.disable();
 		m_Kart_VehicleReact_calcReact_0x20_hook.disable();
 		m_Kart_Unit_calcMove_hook.disable();
+		m_Kart_NetData_send_hook.disable();
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook.disable();
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook.disable();
 		m_Item_ItemObjBase_setStateSelfMove_hook.disable();
