@@ -60,6 +60,11 @@ namespace base
 			m_Item_ItemObjBase_setStateSelfMove = handle.as<decltype(m_Item_ItemObjBase_setStateSelfMove)>();
 		});
 
+		batch.add("Item::ItemObjKouraG::stateInitSelfMoveImpl", "F0 41 2D E9 00 40 A0 E1 F4 73 9F E5 02 8B 2D ED", [this](memory::handle handle)
+		{
+			m_Item_ItemObjKouraG_stateInitSelfMoveImpl = handle.as<decltype(m_Item_ItemObjKouraG_stateInitSelfMoveImpl)>();
+		});
+
 		batch.add("Item::ItemObjKouraR::stateInitComeBackDown", "F0 41 2D E9 00 40 A0 E1 28 D0 4D E2 10 01 90 E5", [this](memory::handle handle)
 		{
 			m_Item_ItemObjKouraR_stateInitComeBackDown = handle.as<decltype(m_Item_ItemObjKouraR_stateInitComeBackDown)>();

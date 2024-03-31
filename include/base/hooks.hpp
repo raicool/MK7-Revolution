@@ -23,6 +23,7 @@ namespace base
 
         // Detour hooks
         static void Item_ItemObjBase_setStateSelfMove(Item::ItemObjBase *, sead::Vector2f *);
+        static void Item_ItemObjKouraG_stateInitSelfMoveImpl(Item::ItemObjKouraG *);
 		static void Item_ItemObjKouraR_stateInitComeBackDown(Item::ItemObjKouraR *);
         static void Effect_KartEffect_calcTireEffectWheelSpin(Effect::KartEffect *);
         static void Kart_NetData_send(Kart::NetData *, s32);

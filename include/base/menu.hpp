@@ -46,6 +46,7 @@ namespace base
         CTRPluginFramework::MenuEntry *m_item_wheel_entry;
         CTRPluginFramework::MenuEntry *m_drop_items_entry;
         CTRPluginFramework::MenuEntry *m_item_rain_entry;
+        CTRPluginFramework::MenuEntry *m_zero_gravity_shells_entry;
         CTRPluginFramework::MenuEntry *m_blue_shell_battle_crash_fix_entry;
 
         // Kart

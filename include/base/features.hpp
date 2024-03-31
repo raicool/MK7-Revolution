@@ -16,6 +16,7 @@ namespace base
 			static void item_rain(Item::KartItem *);
 			static void item_wheel_calc(Item::KartItem *);
 			static void item_wheel_init(Item::KartItem *);
+			static void zero_gravity_shells(Item::ItemObjKouraG *);
 		};
 
 		struct kart

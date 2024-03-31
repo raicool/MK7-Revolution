@@ -26,6 +26,7 @@ namespace base
 		game_types::Item_KartItem_setItemForce_t m_Item_KartItem_setItemForce;
 
 		void *m_Item_ItemObjBase_setStateSelfMove;
+		void *m_Item_ItemObjKouraG_stateInitSelfMoveImpl;
 		void *m_Item_ItemObjKouraR_stateInitComeBackDown;
 		void *m_Effect_KartEffect_calcTireEffectWheelSpin;
 		void *m_Kart_NetData_send;
