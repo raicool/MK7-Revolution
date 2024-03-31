@@ -85,6 +85,11 @@ namespace base
 			m_Net_NetworkEngine_sendUnreliableCore = handle.as<decltype(m_Net_NetworkEngine_sendUnreliableCore)>();
 		});
 
+		batch.add("Net::NetworkEventModule::calc", "F0 4F 2D E9 00 50 A0 E1 98 80 80 E2 0C D0 4D E2 ", [this](memory::handle handle)
+		{
+			m_Net_NetworkEventModule_calc_0xB4 = handle.add(0xB4).as<decltype(m_Net_NetworkEventModule_calc_0xB4)>();
+		});
+
 		batch.add("Net::NetworkSystemInfo::onReceivedCore", "F0 5F 2D E9 00 40 A0 E1 CC 20 90 E5 08 00 91 E5", [this](memory::handle handle)
 		{
 			m_Net_NetworkSystemInfo_onReceivedCore = handle.as<decltype(m_Net_NetworkSystemInfo_onReceivedCore)>();

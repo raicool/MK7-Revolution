@@ -39,6 +39,7 @@ SOURCES 	:= 	src \
 				src/base/hooks/Kart/Unit \
 				src/base/hooks/Kart/VehicleReact \
 				src/base/hooks/Net/NetworkEngine \
+				src/base/hooks/Net/NetworkEventModule \
 				src/base/hooks/Net/NetworkSystemInfo \
 				src/base/hooks/RaceSys/LapRankChecker \
 				src/base/hooks/System/KDPadInputer \

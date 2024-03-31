@@ -33,12 +33,14 @@ namespace base
         hook_types::detour_hook m_Effect_KartEffect_calcTireEffectWheelSpin_hook;
         hook_types::detour_hook m_Kart_NetData_send_hook;
         hook_types::detour_hook m_Kart_Unit_calcMove_hook;
-        hook_types::naked_hook m_Kart_VehicleReact_calcReact_0x20_hook; // FIXME: CTRPF MITM Hook doesn't work on routines
         hook_types::detour_hook m_Kart_VehicleReact_reactAccidentCommon_hook;
         hook_types::detour_hook m_Net_NetworkEngine_sendUnreliableCore_hook;
         hook_types::detour_hook m_Net_NetworkSystemInfo_onReceivedCore_hook;
         hook_types::detour_hook m_RaceSys_LapRankChecker_calcLapPosition_hook;
         hook_types::detour_hook m_System_KDPadInputer_calcInput_hook;
+
+        hook_types::naked_hook m_Kart_VehicleReact_calcReact_0x20_hook; // FIXME: CTRPF MITM Hook doesn't work on routines
+        hook_types::naked_hook m_Net_NetworkEventModule_calc_0xB4_hook;
     };
 
     inline hooking *g_hooking{};

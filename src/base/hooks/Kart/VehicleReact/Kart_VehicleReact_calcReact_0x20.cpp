@@ -14,7 +14,7 @@ namespace base
 	}
 
 	extern "C" auto __intangibility(Kart::VehicleReact *_this)
-	{				
+	{
 		return base::features::kart::intangibility(_this);
 	}
 }

@@ -43,6 +43,10 @@ namespace base
 			},
 			"kart":
 			{
+				"instant_miniturbo":
+				{
+					"type": 1
+				},
 				"intangibility":
 				{
 					"invert": true
@@ -54,14 +58,14 @@ namespace base
 					"press": false,
 					"star": false,
 					"thunder": false
-				},
-				"instant_miniturbo":
-				{
-					"type": 1
 				}
 			},
 			"network":
 			{
+				"event_frame_modifier":
+				{
+					"value": 2
+				},
 				"protections":
 				{
 					"network": true

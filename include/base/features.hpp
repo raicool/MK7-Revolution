@@ -1,6 +1,8 @@
 #pragma once
 
 #include <forward.hpp>
+
+#include <Net/NetworkEventModule.hpp>
 #include <RaceSys/ModeManagerBase.hpp> // RaceSys::ModeManagerBase::ERaceState
 
 namespace base
@@ -18,10 +20,10 @@ namespace base
 
 		struct kart
 		{
+			static void instant_miniturbo(Kart::Unit *);
+			static void instant_respawn(Kart::Unit *);
 			static bool intangibility(Kart::VehicleReact *);
 			static bool invincibility(Kart::VehicleReact *);
-			static void instant_respawn(Kart::Unit *);
-			static void instant_miniturbo(Kart::Unit *);
 			static void kart_statuses(Kart::Unit *);
 
 			static constexpr s32 c_status_threshold = 1 << 2;
@@ -37,8 +39,9 @@ namespace base
 
 		struct network
 		{
-			static void invisibility(Kart::NetData *);
 			static void high_data_rate(u32 *);
+			static void invisibility(Kart::NetData *);
+			static u32 event_frame_modifier(Net::NetworkEventModule::Slot *);
 			static void no_disconnect(RaceSys::LapRankChecker *);
 			static bool protections_system_info(Net::NetworkReceivedInfo *);
 		};

@@ -15,12 +15,14 @@ namespace base
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook("Effect::KartEffect::_calcTireEffect_WheelSpin", g_pointers->m_Effect_KartEffect_calcTireEffectWheelSpin, reinterpret_cast<void *>(&hooks::Effect_KartEffect_calcTireEffectWheelSpin)),
 		m_Kart_NetData_send_hook("Kart::NetData::send", g_pointers->m_Kart_NetData_send, reinterpret_cast<void *>(&hooks::Kart_NetData_send)),
 		m_Kart_Unit_calcMove_hook("Kart::Unit::calcMove", g_pointers->m_Kart_Unit_calcMove, reinterpret_cast<void *>(&hooks::Kart_Unit_calcMove)),
-		m_Kart_VehicleReact_calcReact_0x20_hook("Kart::VehicleReact::calcReact+0x20", g_pointers->m_Kart_VehicleReact_calcReact_0x20, reinterpret_cast<void *>(&hooks::Kart_VehicleReact_calcReact_0x20)),
 		m_Kart_VehicleReact_reactAccidentCommon_hook("Kart::VehicleReact::reactAccidentCommon", g_pointers->m_Kart_VehicleReact_reactAccidentCommon, reinterpret_cast<void *>(&hooks::Kart_VehicleReact_reactAccidentCommon)),
 		m_Net_NetworkEngine_sendUnreliableCore_hook("Net::NetworkEngine::sendUnreliableCore", g_pointers->m_Net_NetworkEngine_sendUnreliableCore, reinterpret_cast<void *>(&hooks::Net_NetworkEngine_sendUnreliableCore)),
 		m_Net_NetworkSystemInfo_onReceivedCore_hook("Net::NetworkSystemInfo::onReceivedCore", g_pointers->m_Net_NetworkSystemInfo_onReceivedCore, reinterpret_cast<void *>(&hooks::Net_NetworkSystemInfo_onReceivedCore)),
 		m_RaceSys_LapRankChecker_calcLapPosition_hook("RaceSys::LapRankChecker::calcLapPosition_", g_pointers->m_RaceSys_LapRankChecker_calcLapPosition, reinterpret_cast<void *>(&hooks::RaceSys_LapRankChecker_calcLapPosition)),
-		m_System_KDPadInputer_calcInput_hook("System::KDPadInputer::calcInput", g_pointers->m_System_KDPadInputer_calcInput, reinterpret_cast<void *>(&hooks::System_KDPadInputer_calcState))
+		m_System_KDPadInputer_calcInput_hook("System::KDPadInputer::calcInput", g_pointers->m_System_KDPadInputer_calcInput, reinterpret_cast<void *>(&hooks::System_KDPadInputer_calcState)),
+
+		m_Kart_VehicleReact_calcReact_0x20_hook("Kart::VehicleReact::calcReact+0x20", g_pointers->m_Kart_VehicleReact_calcReact_0x20, reinterpret_cast<void *>(&hooks::Kart_VehicleReact_calcReact_0x20)),
+		m_Net_NetworkEventModule_calc_0xB4_hook("Net::NetworkEventModule::calc+0xB4", g_pointers->m_Net_NetworkEventModule_calc_0xB4, reinterpret_cast<void *>(&hooks::Net_NetworkEventModule_calc_0xB4))
 	{
 		m_Item_ItemDirector_hook.hook(hooks::Director_calcBeforeStructure_index, reinterpret_cast<void *>(&hooks::Item_ItemDirector_calcBeforeStructure));
 		m_Item_KartItem_hook.hook(hooks::Director_initBeforeStructure_index, reinterpret_cast<void *>(&hooks::Item_KartItem_initBeforeStructure));
@@ -49,12 +51,14 @@ namespace base
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook.enable();
 		m_Kart_NetData_send_hook.enable();
 		m_Kart_Unit_calcMove_hook.enable();
-		m_Kart_VehicleReact_calcReact_0x20_hook.enable();
 		m_Kart_VehicleReact_reactAccidentCommon_hook.enable();
 		m_Net_NetworkEngine_sendUnreliableCore_hook.enable();
 		m_Net_NetworkSystemInfo_onReceivedCore_hook.enable();
 		m_RaceSys_LapRankChecker_calcLapPosition_hook.enable();
 		m_System_KDPadInputer_calcInput_hook.enable();
+
+		m_Kart_VehicleReact_calcReact_0x20_hook.enable();
+		m_Net_NetworkEventModule_calc_0xB4_hook.enable();
 
 		m_enabled = true;
 	}
@@ -63,12 +67,14 @@ namespace base
 	{
 		m_enabled = false;
 
+		m_Net_NetworkEventModule_calc_0xB4_hook.disable();
+		m_Kart_VehicleReact_calcReact_0x20_hook.disable();
+
 		m_System_KDPadInputer_calcInput_hook.disable();
 		m_RaceSys_LapRankChecker_calcLapPosition_hook.disable();
 		m_Net_NetworkSystemInfo_onReceivedCore_hook.disable();
 		m_Net_NetworkEngine_sendUnreliableCore_hook.disable();
 		m_Kart_VehicleReact_reactAccidentCommon_hook.disable();
-		m_Kart_VehicleReact_calcReact_0x20_hook.disable();
 		m_Kart_Unit_calcMove_hook.disable();
 		m_Kart_NetData_send_hook.disable();
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook.disable();

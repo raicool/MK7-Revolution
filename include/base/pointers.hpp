@@ -15,8 +15,7 @@ namespace base
 		explicit pointers();
 		~pointers();
 
-		// FIXME: for some reason, sead::GlobalRandom corrupts the instance when used
-		sead::Random **m_random;
+		sead::Random **m_random; // FIXME: for some reason, sead::GlobalRandom corrupts the instance when used
 		System::RootSystem *m_root_system;
 
 		void *m_Item_ItemDirector;
@@ -34,6 +33,7 @@ namespace base
 		void *m_Kart_VehicleReact_calcReact_0x20;
 		void *m_Kart_VehicleReact_reactAccidentCommon;
 		void *m_Net_NetworkEngine_sendUnreliableCore;
+		void *m_Net_NetworkEventModule_calc_0xB4;
 		void *m_Net_NetworkSystemInfo_onReceivedCore;
 		void *m_RaceSys_LapRankChecker_calcLapPosition;
 		void *m_System_KDPadInputer_calcInput;

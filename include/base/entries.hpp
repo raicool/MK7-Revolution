@@ -21,6 +21,7 @@ namespace base
 
 		struct network
 		{
+			static void event_frame_modifier_menu(CTRPluginFramework::MenuEntry *);
 			static void protections_menu(CTRPluginFramework::MenuEntry *);
 		};
 

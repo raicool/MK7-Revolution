@@ -21,9 +21,6 @@ namespace base
         static void Item_KartItem_initBeforeStructure(Item::KartItem *);
         static void Kart_Director_calcBeforeStructure(Kart::Director *);
 
-        // Naked hooks
-        static NAKED void Kart_VehicleReact_calcReact_0x20();
-
         // Detour hooks
         static void Item_ItemObjBase_setStateSelfMove(Item::ItemObjBase *, sead::Vector2f *);
 		static void Item_ItemObjKouraR_stateInitComeBackDown(Item::ItemObjKouraR *);
@@ -35,5 +32,9 @@ namespace base
         static bool Net_NetworkSystemInfo_onReceivedCore(Net::NetworkSystemInfo *, Net::NetworkReceivedInfo *);
         static void RaceSys_LapRankChecker_calcLapPosition(RaceSys::LapRankChecker *, RaceSys::LapRankChecker::KartInfo *);
         static void System_KDPadInputer_calcState(System::KDPadInputer *);
+
+        // Naked hooks
+        static NAKED void Kart_VehicleReact_calcReact_0x20();
+        static NAKED void Net_NetworkEventModule_calc_0xB4();
     };
 }
