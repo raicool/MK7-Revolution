@@ -34,9 +34,10 @@ namespace base
 
         m_drive_during_sync_entry(new MenuEntry("Drive During Sync", DEFAULT_ENTRY)),
 
+        m_kart_warp_entry(new MenuEntry("Kart Warp", DEFAULT_ENTRY)),
+        m_high_data_rate_entry(new MenuEntry("High Data Rate", DEFAULT_ENTRY)),
         m_invisibility_entry(new MenuEntry("Invisibility", DEFAULT_ENTRY)),
         m_no_disconnect_entry(new MenuEntry("No Disconnect", DEFAULT_ENTRY)),
-        m_high_data_rate_entry(new MenuEntry("High Data Rate", DEFAULT_ENTRY)),
         m_event_frame_modifier_entry(new MenuEntry("Event Frame Modifier", DEFAULT_ENTRY, entries::network::event_frame_modifier_menu)),
         m_protections_entry(new MenuEntry("Protections", DEFAULT_ENTRY, entries::network::protections_menu))
     {
@@ -95,9 +96,10 @@ namespace base
 
         if (auto network = new MenuFolder("Network"))
         {
+            *network += m_kart_warp_entry;
+            *network += m_high_data_rate_entry;
             *network += m_invisibility_entry;
             *network += m_no_disconnect_entry;
-            *network += m_high_data_rate_entry;
             *network += m_event_frame_modifier_entry;
             *network += m_protections_entry;
 

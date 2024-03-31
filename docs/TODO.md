@@ -17,7 +17,7 @@ The following document shows a list of ideas that may get implemented in the fut
 - [ ] Disable Lightning Flashes
 
 ### Kart
-- [ ] Invincibility
+- [x] Invincibility
 	- [ ] Hazards (Lightning, Blooper, ...)
 - [x] Intangibility
 	- [ ] Modes (Kart, Item, Object)
@@ -43,7 +43,6 @@ The following document shows a list of ideas that may get implemented in the fut
 - [ ] Principal ID Modifier (PID, FC, randomizer)
 - [ ] Principal ID Joiner
 - [ ] Force Replacement
-- [ ] Disable Item Delay
 - [ ] VR Extender Fix
 
 ### Sound

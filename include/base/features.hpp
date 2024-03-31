@@ -40,6 +40,7 @@ namespace base
 
 		struct network
 		{
+			static void kart_warp(Kart::NetData *);
 			static void high_data_rate(u32 *);
 			static void invisibility(Kart::NetData *);
 			static u32 event_frame_modifier(Net::NetworkEventModule::Slot *);

@@ -60,9 +60,10 @@ namespace base
         CTRPluginFramework::MenuEntry *m_drive_during_sync_entry;
 
         // Network
+        CTRPluginFramework::MenuEntry *m_kart_warp_entry;
+        CTRPluginFramework::MenuEntry *m_high_data_rate_entry;
         CTRPluginFramework::MenuEntry *m_invisibility_entry;
         CTRPluginFramework::MenuEntry *m_no_disconnect_entry;
-        CTRPluginFramework::MenuEntry *m_high_data_rate_entry;
         CTRPluginFramework::MenuEntry *m_event_frame_modifier_entry;
         CTRPluginFramework::MenuEntry *m_protections_entry;
     };
