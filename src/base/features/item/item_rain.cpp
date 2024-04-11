@@ -32,7 +32,7 @@ namespace base
             {
                 data->count = 0;
 
-                auto const units = reinterpret_cast<Object::CharacterEngine *>(g_pointers->m_root_system->m_scene_manager->m_root_scene->get_engine(Object::EEngineType::Character))->m_collection->m_kart_director->m_units;
+                auto const units = g_pointers->m_root_system->m_scene_manager->m_root_scene->m_engine_holder.get_engine<Object::CharacterEngine>(Object::EEngineType::Character)->m_collection->m_kart_director->m_units;
 
                 // Lambda to spawn a randomized item
                 auto const spawn_item = [_this, data, settings](auto const unit)

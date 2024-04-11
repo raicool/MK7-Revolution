@@ -19,7 +19,7 @@ namespace base
         if (g_menu->m_drive_during_sync_entry->IsActivated())
         {
             if (mode_manager_base == nullptr)
-                mode_manager_base = reinterpret_cast<Object::CharacterEngine *>(g_pointers->m_root_system->m_scene_manager->m_root_scene->get_engine(Object::EEngineType::Character))->m_collection->m_race_director->m_mode_manager_base;
+                mode_manager_base = g_pointers->m_root_system->m_scene_manager->m_root_scene->m_engine_holder.get_engine<Object::CharacterEngine>(Object::EEngineType::Character)->m_collection->m_race_director->m_mode_manager_base;
 
             original = mode_manager_base->m_race_state;
             mode_manager_base->m_race_state = RaceSys::ModeManagerBase::ERaceState::Race;
