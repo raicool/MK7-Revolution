@@ -30,6 +30,7 @@ SOURCES 	:= 	src \
 				src/base/features/network \
 				src/base/hook_types \
 				src/base/hooks/Effect/KartEffect \
+				src/base/hooks/Item \
 				src/base/hooks/Item/ItemDirector \
 				src/base/hooks/Item/ItemObjBase \
 				src/base/hooks/Item/ItemObjKouraG \

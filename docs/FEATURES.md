@@ -1,11 +1,12 @@
 ## Features
-The following document shows a [Tree](https://tree.nathanfriend.io/?s=(%27opt7s!(%27fancy!true~fullPath3~trailingSlash3~rootDot3)~8(%278%27Revolut7.5JWheel*Drop%205sJRain*Zero%20GravityOhells*Blu4Shell%20Battl4Crash%20Fix.KartAvinc0Intang0QStatuses6Respawn6Mini-Turbo.Mode*Driv4DuringOync.Network*QWarp*HighLata%20RateAvis0NoLisconnect*Even2Fram4Modifier*Protect7s%27)~vers7!%271%27)*.9.%5Cn90ibility*2t%203!false4e%205Item6Astan27ion8source!9%20%20A*InJ*5%20L%20DO%20SQKar2%01QOLJA987654320.*) view of the current features.
+The following document shows a [Tree](https://tree.nathanfriend.io/?s=(%27opt7s!(%27fancy!true~fullPath4~trailingSlash4~rootDot4)~9(%279%27Revolut7.80Wheel*Drop%208s0Rain0LimiOrs*Zero%20GravityUhells*Blu5Shell%20Battl5Crash%20Fix.KartJvinc2Intang2VStatuses6Respawn6Mini-Turbo.Mode*Driv5DuringUync.Network*VWarp*HighQata%20RaOJvis2NoQisconnect*Even3Fram5Modifier*ProOct7s%27)~vers7!%271%27)*.A.%5CnA0*8%202ibility*3t%204!false5e%206Jstan37ion8IOm9source!A%20%20J*InOteQ%20DU%20SVKar3%01VUQOJA987654320.*) view of the current features.
 ```
 Revolution
 ├── Item
 │   ├── Item Wheel
 │   ├── Drop Items
 │   ├── Item Rain
+│   ├── Item Limiters
 │   ├── Zero Gravity Shells
 │   └── Blue Shell Battle Crash Fix
 ├── Kart

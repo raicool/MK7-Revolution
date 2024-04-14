@@ -12,6 +12,7 @@ namespace base
     struct hooks
     {
         static constexpr size_t Director_count = 34;
+        static constexpr size_t Director_createBeforeStructure_index = 18;
         static constexpr size_t Director_initBeforeStructure_index = 20;
         static constexpr size_t Director_calcBeforeStructure_index = 22;
         
@@ -22,6 +23,8 @@ namespace base
         static void Kart_Director_calcBeforeStructure(Kart::Director *);
 
         // Detour hooks
+        static s32 Item_GetNumInItemType(Item::eItemType);
+        static s32 Item_GetExtraItemNum(Item::eItemType);
         static void Item_ItemObjBase_setStateSelfMove(Item::ItemObjBase *, sead::Vector2f *);
         static void Item_ItemObjKouraG_stateInitSelfMoveImpl(Item::ItemObjKouraG *);
 		static void Item_ItemObjKouraR_stateInitComeBackDown(Item::ItemObjKouraR *);

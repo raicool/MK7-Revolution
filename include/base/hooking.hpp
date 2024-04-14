@@ -28,6 +28,8 @@ namespace base
         hook_types::vmt_hook m_Item_KartItem_hook;
         hook_types::vmt_hook m_Kart_Director_hook;
 
+        hook_types::detour_hook m_Item_GetExtraItemNum_hook;
+        hook_types::detour_hook m_Item_GetNumInItemType_hook;
         hook_types::detour_hook m_Item_ItemObjBase_setStateSelfMove_hook;
         hook_types::detour_hook m_Item_ItemObjKouraG_stateInitSelfMoveImpl_hook;
         hook_types::detour_hook m_Item_ItemObjKouraR_stateInitComeBackDown_hook;

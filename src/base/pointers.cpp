@@ -28,6 +28,15 @@ namespace base
 			m_Item_ItemDirector = handle.add(0x10).as<decltype(m_Item_ItemDirector)>();
 		});
 
+		batch.add("Item::ItemObjBananaDirector", "21 01 84 E8 48 D0 8D E2 F0 87 BD E8 01 00 A0 E3", [this](memory::handle handle)
+		{
+			auto Item_ItemObjBananaDirector_vtbl = *handle.add(0x3C).as<void ***>();
+			auto Item_ItemObjBananaDirector_createBeforeStructure_hnd = memory::handle(Item_ItemObjBananaDirector_vtbl[hooks::Director_createBeforeStructure_index]);
+
+			m_Item_GetExtraItemNum = Item_ItemObjBananaDirector_createBeforeStructure_hnd.add(0x18).jmp().as<decltype(m_Item_GetExtraItemNum)>();
+			m_Item_GetNumInItemType = Item_ItemObjBananaDirector_createBeforeStructure_hnd.add(0xC).jmp().as<decltype(m_Item_GetNumInItemType)>();
+		});
+
 		batch.add("Item::KartItem", "02 01 8C E7 34 00 84 E5 04 00 A0 E1 B0 80 BD E8", [this](memory::handle handle)
 		{
 			m_Item_KartItem = handle.add(0x10).as<decltype(m_Item_KartItem)>();
@@ -55,6 +64,11 @@ namespace base
 			m_Item_KartItem_setItemForce = reinterpret_cast<decltype(m_Item_KartItem_setItemForce)>(handle.as<void *>());
 		});
 
+		batch.add("Effect::KartEffect::_calcTireEffect_WheelSpin", "70 40 2D E9 00 40 A0 E1 02 8B 2D ED 60 D0 4D E2", [this](memory::handle handle)
+		{
+			m_Effect_KartEffect_calcTireEffectWheelSpin = handle.as<decltype(m_Effect_KartEffect_calcTireEffectWheelSpin)>();
+		});
+
 		batch.add("Item::ItemObjBase::setState_SelfMove", "70 40 2D E9 00 50 A0 E1 9C 00 9F E5 01 40 A0 E1", [this](memory::handle handle)
 		{
 			m_Item_ItemObjBase_setStateSelfMove = handle.as<decltype(m_Item_ItemObjBase_setStateSelfMove)>();
@@ -68,11 +82,6 @@ namespace base
 		batch.add("Item::ItemObjKouraR::stateInitComeBackDown", "F0 41 2D E9 00 40 A0 E1 28 D0 4D E2 10 01 90 E5", [this](memory::handle handle)
 		{
 			m_Item_ItemObjKouraR_stateInitComeBackDown = handle.as<decltype(m_Item_ItemObjKouraR_stateInitComeBackDown)>();
-		});
-
-		batch.add("Effect::KartEffect::_calcTireEffect_WheelSpin", "70 40 2D E9 00 40 A0 E1 02 8B 2D ED 60 D0 4D E2", [this](memory::handle handle)
-		{
-			m_Effect_KartEffect_calcTireEffectWheelSpin = handle.as<decltype(m_Effect_KartEffect_calcTireEffectWheelSpin)>();
 		});
 
 		batch.add("Kart::NetData::send", "30 40 2D E9 24 D0 4D E2 00 40 A0 E1 01 50 A0 E1 10 00 8D E2", [this](memory::handle handle)

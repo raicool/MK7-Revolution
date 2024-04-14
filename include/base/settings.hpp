@@ -26,6 +26,7 @@ namespace base
 		R"({
 			"item":
 			{
+				"item_limiters": [[5, [true, 8]], [9, [true, 32]]],
 				"item_rain":
 				{
 					"items": [0, 1, 2, 3, 4],

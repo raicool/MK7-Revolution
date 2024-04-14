@@ -10,6 +10,8 @@ namespace base
 		m_Item_KartItem_hook("Item::KartItem", g_pointers->m_Item_KartItem, hooks::Director_count),
 		m_Kart_Director_hook("Kart::Director", g_pointers->m_Kart_Director, hooks::Director_count),
 
+		m_Item_GetExtraItemNum_hook("Item::GetExtraItemNum", g_pointers->m_Item_GetExtraItemNum, reinterpret_cast<void *>(&hooks::Item_GetExtraItemNum)),
+		m_Item_GetNumInItemType_hook("Item::GetNum_InItemType", g_pointers->m_Item_GetNumInItemType, reinterpret_cast<void *>(&hooks::Item_GetNumInItemType)),
 		m_Item_ItemObjBase_setStateSelfMove_hook("Item::ItemObjBase::setState_SelfMove", g_pointers->m_Item_ItemObjBase_setStateSelfMove, reinterpret_cast<void *>(&hooks::Item_ItemObjBase_setStateSelfMove)),
 		m_Item_ItemObjKouraG_stateInitSelfMoveImpl_hook("Item::ItemObjKouraG::stateInitSelfMoveImpl", g_pointers->m_Item_ItemObjKouraG_stateInitSelfMoveImpl, reinterpret_cast<void *>(&hooks::Item_ItemObjKouraG_stateInitSelfMoveImpl)),
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook("Item::ItemObjKouraR::stateInitComeBackDown", g_pointers->m_Item_ItemObjKouraR_stateInitComeBackDown, reinterpret_cast<void *>(&hooks::Item_ItemObjKouraR_stateInitComeBackDown)),
@@ -47,6 +49,8 @@ namespace base
 		m_Item_KartItem_hook.enable();
 		m_Kart_Director_hook.enable();
 
+		m_Item_GetExtraItemNum_hook.enable();
+		m_Item_GetNumInItemType_hook.enable();
 		m_Item_ItemObjBase_setStateSelfMove_hook.enable();
 		m_Item_ItemObjKouraG_stateInitSelfMoveImpl_hook.enable();
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook.enable();
@@ -83,6 +87,8 @@ namespace base
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook.disable();
 		m_Item_ItemObjKouraG_stateInitSelfMoveImpl_hook.disable();
 		m_Item_ItemObjBase_setStateSelfMove_hook.disable();
+		m_Item_GetNumInItemType_hook.disable();
+		m_Item_GetExtraItemNum_hook.disable();
 
 		m_Kart_Director_hook.disable();
 		m_Item_KartItem_hook.disable();
