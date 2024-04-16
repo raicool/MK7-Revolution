@@ -39,6 +39,7 @@ namespace base
 		void *m_Net_NetworkEventModule_calc_0xB4;
 		void *m_Net_NetworkSystemInfo_onReceivedCore;
 		void *m_RaceSys_LapRankChecker_calcLapPosition;
+		void *m_RaceSys_ModeManagerRace_calcCountDown_0x18;
 		void *m_System_KDPadInputer_calcInput;
 
 		float *m_miniturbo_blue_threshold;

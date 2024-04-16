@@ -37,8 +37,9 @@ namespace base
 
 		struct mode
 		{
-			static RaceSys::ModeManagerBase::ERaceState drive_during_sync_before(RaceSys::ModeManagerBase *);
 			static void drive_during_sync_after(RaceSys::ModeManagerBase *, RaceSys::ModeManagerBase::ERaceState);
+			static RaceSys::ModeManagerBase::ERaceState drive_during_sync_before(RaceSys::ModeManagerBase *);
+			static bool drive_during_sync_bottom_screen(bool);
 			static bool drive_during_sync_input(System::KDPadInputer *);
 		};
 

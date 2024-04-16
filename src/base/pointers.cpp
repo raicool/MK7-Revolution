@@ -114,6 +114,11 @@ namespace base
 			m_RaceSys_LapRankChecker_calcLapPosition = handle.as<decltype(m_RaceSys_LapRankChecker_calcLapPosition)>();
 		});
 
+		batch.add("RaceSys::ModeManagerRace::calcCountDown", "70 40 2D E9 00 40 A0 E1 B0 50 9F E5 00 60 A0 E3 ", [this](memory::handle handle)
+		{
+			m_RaceSys_ModeManagerRace_calcCountDown_0x18 = handle.add(0x18).as<decltype(m_RaceSys_ModeManagerRace_calcCountDown_0x18)>();
+		});
+
 		batch.add("System::KDPadInputer::calcInput", "04 10 90 E5 01 00 51 E3 02 00 00 1A 00 10 90 E5", [this](memory::handle handle)
 		{
 			m_System_KDPadInputer_calcInput = handle.as<decltype(m_System_KDPadInputer_calcInput)>();

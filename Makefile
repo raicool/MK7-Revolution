@@ -44,6 +44,7 @@ SOURCES 	:= 	src \
 				src/base/hooks/Net/NetworkEventModule \
 				src/base/hooks/Net/NetworkSystemInfo \
 				src/base/hooks/RaceSys/LapRankChecker \
+				src/base/hooks/RaceSys/ModeManagerRace \
 				src/base/hooks/System/KDPadInputer \
 				src/base/memory \
 				vendor/mk7-memory/vendor/sead/modules/src/math \

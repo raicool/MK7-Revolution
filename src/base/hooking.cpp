@@ -25,7 +25,8 @@ namespace base
 		m_System_KDPadInputer_calcInput_hook("System::KDPadInputer::calcInput", g_pointers->m_System_KDPadInputer_calcInput, reinterpret_cast<void *>(&hooks::System_KDPadInputer_calcState)),
 
 		m_Kart_VehicleReact_calcReact_0x20_hook("Kart::VehicleReact::calcReact+0x20", g_pointers->m_Kart_VehicleReact_calcReact_0x20, reinterpret_cast<void *>(&hooks::Kart_VehicleReact_calcReact_0x20)),
-		m_Net_NetworkEventModule_calc_0xB4_hook("Net::NetworkEventModule::calc+0xB4", g_pointers->m_Net_NetworkEventModule_calc_0xB4, reinterpret_cast<void *>(&hooks::Net_NetworkEventModule_calc_0xB4))
+		m_Net_NetworkEventModule_calc_0xB4_hook("Net::NetworkEventModule::calc+0xB4", g_pointers->m_Net_NetworkEventModule_calc_0xB4, reinterpret_cast<void *>(&hooks::Net_NetworkEventModule_calc_0xB4)),
+		m_RaceSys_ModeManagerRace_calcCountDown_0x18_hook("RaceSys::ModeManagerRace::calcCountDown+0x18", g_pointers->m_RaceSys_ModeManagerRace_calcCountDown_0x18, reinterpret_cast<void *>(&hooks::RaceSys_ModeManagerRace_calcCountDown_0x18), CTRPluginFramework::USE_LR_TO_RETURN | CTRPluginFramework::EXECUTE_OI_BEFORE_CB)
 	{
 		m_Item_ItemDirector_hook.hook(hooks::Director_calcBeforeStructure_index, reinterpret_cast<void *>(&hooks::Item_ItemDirector_calcBeforeStructure));
 		m_Item_KartItem_hook.hook(hooks::Director_initBeforeStructure_index, reinterpret_cast<void *>(&hooks::Item_KartItem_initBeforeStructure));
@@ -65,6 +66,7 @@ namespace base
 
 		m_Kart_VehicleReact_calcReact_0x20_hook.enable();
 		m_Net_NetworkEventModule_calc_0xB4_hook.enable();
+		m_RaceSys_ModeManagerRace_calcCountDown_0x18_hook.enable();
 
 		m_enabled = true;
 	}
@@ -73,6 +75,7 @@ namespace base
 	{
 		m_enabled = false;
 
+		m_RaceSys_ModeManagerRace_calcCountDown_0x18_hook.disable();
 		m_Net_NetworkEventModule_calc_0xB4_hook.disable();
 		m_Kart_VehicleReact_calcReact_0x20_hook.disable();
 

@@ -40,5 +40,6 @@ namespace base
         // Naked hooks
         static NAKED void Kart_VehicleReact_calcReact_0x20();
         static NAKED void Net_NetworkEventModule_calc_0xB4();
+        static NAKED void RaceSys_ModeManagerRace_calcCountDown_0x18();
     };
 }
