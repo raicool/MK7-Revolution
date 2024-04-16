@@ -5,16 +5,13 @@
 #include <base/pointers.hpp>
 #include <base/settings.hpp>
 #include <base/utils.hpp>
+
 #include <MenuEntryHelpers.hpp>
 
 #include <Item/eItemType.hpp>
 #include <Item/KartItem.hpp>
 #include <Kart/Director.hpp>
 #include <Kart/Unit.hpp>
-#include <Object/CharacterEngine.hpp>
-#include <System/RootScene.hpp>
-#include <System/RootSystem.hpp>
-#include <System/SceneManager.hpp>
 
 #include <math/seadVector.h>
 
@@ -31,8 +28,6 @@ namespace base
             if (++data->count > settings["delay"].get<u64>())
             {
                 data->count = 0;
-
-                auto const units = g_pointers->m_root_system->m_scene_manager->m_root_scene->m_engine_holder.get_engine<Object::CharacterEngine>(Object::EEngineType::Character)->m_collection->m_kart_director->m_units;
 
                 // Lambda to spawn a randomized item
                 auto const spawn_item = [_this, data, settings](auto const unit)
@@ -58,16 +53,12 @@ namespace base
                     }
                 };
 
+                auto const units = _this->m_info_proxy->m_vehicle->m_director->m_units;
+
                 if (settings["multi"])
-                {
-                    for (auto const &unit : units)
-                        spawn_item(unit);
-                }
+                    std::for_each(units.begin(), units.end(), spawn_item);
                 else
-                {
-                    auto const &unit = units[(*g_pointers->m_random)->getU32(units.size())];
-                    spawn_item(unit);
-                }
+                    spawn_item(units[(*g_pointers->m_random)->getU32(units.size())]);
             }
         }
     }
