@@ -34,6 +34,7 @@ namespace base
 					"multi": false,
 					"speed": { "status": true, "value": 64.0 },
 					"delay": 15,
+					"type": 0,
 					"height": 128.0,
 					"width": 256.0
 				},

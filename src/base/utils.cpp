@@ -13,6 +13,21 @@
 
 namespace base::utils
 {
+    u32 random_u32(u32 max)
+    {
+        return (*g_pointers->m_random)->getU32(max);
+    }
+    
+    f32 random_f32()
+    {
+        return (*g_pointers->m_random)->getF32();
+    }
+
+    f32 random_f32(f32 min, f32 max)
+    {
+        return (*g_pointers->m_random)->getF32Range(min, max);
+    }
+
     void emit_item(s32 const player_id, Item::eItemType const item, sead::Vector3f const &position, sead::Vector3f const &velocity)
     {
         if (auto const item_obj_director = g_pointers->m_root_system->m_scene_manager->m_root_scene->m_engine_holder.get_engine<Object::CharacterEngine>(Object::EEngineType::Character)->m_collection->m_item_director->getDirector_FromItemType(item); item_obj_director != nullptr)

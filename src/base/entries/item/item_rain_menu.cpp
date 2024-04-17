@@ -18,6 +18,8 @@ namespace base
 		keyboard.DisplayTopScreen = true;
 		keyboard.IsHexadecimal(false);
 
+		auto const types = std::to_array({ "Square", "Circle" });
+
 		auto &settings = g_settings.m_options["item"]["item_rain"];
 		auto &speed = settings["speed"];
 		auto items = settings["items"].get<std::set<Item::eItemType>>(); // FIXME: doesn't allow getting a pointer to std::set
@@ -26,6 +28,7 @@ namespace base
 		auto speed_status = speed["status"].get<bool *>();
 		auto speed_value = speed["value"].get<double *>();
         auto delay = settings["delay"].get<u64 *>();
+		auto type = settings["type"].get<u64 *>();
         auto height = settings["height"].get<double *>();
 		auto width = settings["width"].get<double *>();
 
@@ -40,6 +43,7 @@ namespace base
 				std::format("Multi ({})", menu::s_toggles[*multi]),
 				std::format("Speed ({}, {})", menu::s_toggles[*speed_status], *speed_value),
                 std::format("Delay ({})", *delay),
+				std::format("Type ({})", types[*type]),
 				std::format("Height ({})", *height),
 				std::format("Width ({})", *width)
 			});
@@ -107,8 +111,9 @@ namespace base
 					break;
 				}
                 case 4: keyboard.Open(*delay, *delay); break;
-			    case 5: keyboard.Open(*height, *height); break;
-				case 6: keyboard.Open(*width, *width); break;
+				case 5: if (++*type >= types.size()) *type = 0; break;
+			    case 6: keyboard.Open(*height, *height); break;
+				case 7: keyboard.Open(*width, *width); break;
 			}
 		}
 		while (choice >= 0);

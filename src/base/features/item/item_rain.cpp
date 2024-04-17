@@ -38,13 +38,27 @@ namespace base
                         auto const player_id = settings["owned"] ? _this->m_info_proxy->m_vehicle->m_player_id : unit->m_vehicle->m_player_id;
 
                         // Choose a random item
-                        auto const item = items[(*g_pointers->m_random)->getU32(items.size())];
+                        auto const item = items[utils::random_u32(items.size())];
 
                         // Generate a random position
-                        auto const height = settings["height"].get<double>();
-                        auto const width = settings["width"].get<double>();
-                        auto const offset = settings["speed"]["status"] ? (unit->m_vehicle->m_up * unit->m_vehicle->m_forward_speed * settings["speed"]["value"].get<double>()) : sead::Vector3f::zero;
-                        auto const position = *unit->m_vehicle->m_position + offset + sead::Vector3f((*g_pointers->m_random)->getF32Range(-width, width), height, (*g_pointers->m_random)->getF32Range(-width, width));
+                        auto const height = static_cast<float>(settings["height"].get<double>());
+                        auto const width = static_cast<float>(settings["width"].get<double>());
+                        auto const type = settings["type"].get<u64>();
+                        auto const speed_offset = settings["speed"]["status"] ? (unit->m_vehicle->m_up * unit->m_vehicle->m_forward_speed * settings["speed"]["value"].get<double>()) : sead::Vector3f::zero;
+                        auto const width_offset = [type, width, height]()
+                        {
+                            switch (type)
+                            {
+                            case 0:
+                                return sead::Vector3f{utils::random_f32(-width, width), height, utils::random_f32(-width, width)};
+                            case 1:
+                                auto const radius = std::sqrt(utils::random_f32()) * width;
+                                auto const angle = utils::random_f32(-std::numbers::pi, std::numbers::pi);
+                                return sead::Vector3f{radius * std::cos(angle), height, radius * std::sin(angle)};
+                            };
+                            return sead::Vector3f::zero;
+                        }();
+                        auto const position = *unit->m_vehicle->m_position + speed_offset + width_offset;
 
                         // Set velocity to (0, -1, 0) so that items won't pop up before falling down
                         auto const velocity = -sead::Vector3f::ey;
@@ -58,7 +72,7 @@ namespace base
                 if (settings["multi"])
                     std::for_each(units.begin(), units.end(), spawn_item);
                 else
-                    spawn_item(units[(*g_pointers->m_random)->getU32(units.size())]);
+                    spawn_item(units[utils::random_u32(units.size())]);
             }
         }
     }
