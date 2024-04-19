@@ -59,7 +59,8 @@ namespace base
 					"ink": true,
 					"press": false,
 					"star": false,
-					"thunder": false
+					"thunder": false,
+					"draft": false
 				}
 			},
 			"network":

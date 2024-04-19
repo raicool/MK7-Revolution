@@ -32,6 +32,9 @@ namespace base
 
 			if (settings["thunder"] && _this->m_vehicle->m_thunder_frames <= c_status_threshold)
 				_this->m_vehicle->m_thunder_frames = c_status_threshold + 1;
+
+			if (settings["draft"])
+				_this->m_vehicle->m_draft_frames = c_status_threshold;
 		}
 	}
 }

@@ -19,6 +19,7 @@ namespace base
         auto press = settings["press"].get<bool *>();
         auto star = settings["star"].get<bool *>();
         auto thunder = settings["thunder"].get<bool *>();
+        auto draft = settings["draft"].get<bool *>();
 
         int choice;
 
@@ -30,7 +31,8 @@ namespace base
 				std::format("Ink ({})", menu::s_toggles[*ink]),
 				std::format("Press ({})", menu::s_toggles[*press]),
 				std::format("Star ({})", menu::s_toggles[*star]),
-				std::format("Thunder ({})", menu::s_toggles[*thunder])
+				std::format("Thunder ({})", menu::s_toggles[*thunder]),
+                std::format("Draft ({})", menu::s_toggles[*draft]),
 			});
 
 			choice = keyboard.Open();
@@ -42,6 +44,7 @@ namespace base
                 case 2: *press ^= true; break;
                 case 3: *star ^= true; break;
                 case 4: *thunder ^= true; break;
+                case 5: *draft ^= true; break;
             }
         }
         while (choice >= 0);
