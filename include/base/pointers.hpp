@@ -35,12 +35,14 @@ namespace base
 		void *m_Kart_Unit_calcMove;
 		void *m_Kart_VehicleReact_calcReact_0x20;
 		void *m_Kart_VehicleReact_reactAccidentCommon;
+		void *m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived;
 		void *m_Net_NetworkEngine_sendUnreliableCore;
 		void *m_Net_NetworkEventModule_calc_0xB4;
-		void *m_Net_NetworkSystemInfo_onReceivedCore;
 		void *m_RaceSys_LapRankChecker_calcLapPosition;
 		void *m_RaceSys_ModeManagerRace_calcCountDown_0x18;
 		void *m_System_KDPadInputer_calcInput;
+
+		std::size_t *m_network_buffer_sizes;
 
 		float *m_miniturbo_blue_threshold;
 		float *m_miniturbo_red_threshold;

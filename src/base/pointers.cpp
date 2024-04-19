@@ -94,6 +94,11 @@ namespace base
 			m_Kart_VehicleReact_reactAccidentCommon = handle.as<decltype(m_Kart_VehicleReact_reactAccidentCommon)>();
 		});
 
+		batch.add("Net::NetworkDataManager<Net::NetworkSystemSendFormat>::onReceived", "70 40 2D E9 00 40 A0 E1 EC 00 D0 E5 01 60 A0 E1", [this](memory::handle handle)
+		{
+			m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived = handle.as<decltype(m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived)>();
+		});
+
 		batch.add("Net::NetworkEngine::sendUnreliableCore", "F0 4F 2D E9 00 40 A0 E1 01 0B 80 E2 01 50 A0 E1", [this](memory::handle handle)
 		{
 			m_Net_NetworkEngine_sendUnreliableCore = handle.as<decltype(m_Net_NetworkEngine_sendUnreliableCore)>();
@@ -102,11 +107,6 @@ namespace base
 		batch.add("Net::NetworkEventModule::calc", "F0 4F 2D E9 00 50 A0 E1 98 80 80 E2 0C D0 4D E2", [this](memory::handle handle)
 		{
 			m_Net_NetworkEventModule_calc_0xB4 = handle.add(0xB4).as<decltype(m_Net_NetworkEventModule_calc_0xB4)>();
-		});
-
-		batch.add("Net::NetworkSystemInfo::onReceivedCore", "F0 5F 2D E9 00 40 A0 E1 CC 20 90 E5 08 00 91 E5", [this](memory::handle handle)
-		{
-			m_Net_NetworkSystemInfo_onReceivedCore = handle.as<decltype(m_Net_NetworkSystemInfo_onReceivedCore)>();
 		});
 
 		batch.add("RaceSys::LapRankChecker::calcLapPosition_", "F0 4F 2D E9 01 40 A0 E1 00 50 A0 E1 02 8B 2D ED", [this](memory::handle handle)
@@ -122,6 +122,11 @@ namespace base
 		batch.add("System::KDPadInputer::calcInput", "04 10 90 E5 01 00 51 E3 02 00 00 1A 00 10 90 E5", [this](memory::handle handle)
 		{
 			m_System_KDPadInputer_calcInput = handle.as<decltype(m_System_KDPadInputer_calcInput)>();
+		});
+		
+		batch.add("NetworkBufferSizes", "01 80 88 E2 08 00 50 E1 ? ? ? CA F0 9F BD E8", [this](memory::handle handle)
+		{
+			m_network_buffer_sizes = *handle.add(0x10).as<decltype(m_network_buffer_sizes) *>();
 		});
 
 		batch.add("Data", "F0 4F 2D E9 01 6A 80 E2 00 40 A0 E1 04 8B 2D ED", [this](memory::handle handle)

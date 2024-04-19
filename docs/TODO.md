@@ -13,7 +13,6 @@ The following document shows a list of ideas that may get implemented in the fut
 - [ ] Draggable Items (Blue Shell, Fire Flower, ...)
 - [ ] Unrestrict Item Usage (Bullet Bill, respawn, ...)
 - [ ] Controllable Bullet Bill
-- [ ] Item Limiters
 - [ ] Item Guru
 - [ ] Configurable Rapid Fire
 - [ ] Disable Lightning Flashes
@@ -41,7 +40,8 @@ The following document shows a list of ideas that may get implemented in the fut
 
 ### Network
 - [x] Invisibility
-	- [ ] Modes (normal, stealth, warp, ...)
+	- [ ] Modes (stealth, velocity, ...)
+	- [ ] Indicator
 - [ ] Principal ID Modifier (PID, FC, randomizer)
 - [ ] Principal ID Joiner
 - [ ] Force Replacement

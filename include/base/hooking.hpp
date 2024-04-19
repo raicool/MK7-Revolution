@@ -37,8 +37,8 @@ namespace base
         hook_types::detour_hook m_Kart_NetData_send_hook;
         hook_types::detour_hook m_Kart_Unit_calcMove_hook;
         hook_types::detour_hook m_Kart_VehicleReact_reactAccidentCommon_hook;
+        hook_types::detour_hook m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived_hook;
         hook_types::detour_hook m_Net_NetworkEngine_sendUnreliableCore_hook;
-        hook_types::detour_hook m_Net_NetworkSystemInfo_onReceivedCore_hook;
         hook_types::detour_hook m_RaceSys_LapRankChecker_calcLapPosition_hook;
         hook_types::detour_hook m_System_KDPadInputer_calcInput_hook;
 
