@@ -22,6 +22,7 @@ namespace base
 		void *m_Item_KartItem;
 		void *m_Kart_Director;
 
+		game_types::Item_ItemObjBase_stateEquipHang_t m_Item_ItemObjBase_stateEquipHang;
 		game_types::Item_ItemObjDirectorBase_emitItemImpl_t m_Item_ItemObjDirectorBase_emitItemImpl;
 		game_types::Item_KartItem_setItemForce_t m_Item_KartItem_setItemForce;
 
@@ -29,6 +30,8 @@ namespace base
 		void *m_Item_GetExtraItemNum;
 		void *m_Item_GetNumInItemType;
 		void *m_Item_ItemObjBase_setStateSelfMove;
+		void *m_Item_ItemObjFlower_stateEquipHang;
+		void *m_Item_ItemObjKouraB_stateEquipHang;
 		void *m_Item_ItemObjKouraG_stateInitSelfMoveImpl;
 		void *m_Item_ItemObjKouraR_stateInitComeBackDown;
 		void *m_Kart_NetData_send;

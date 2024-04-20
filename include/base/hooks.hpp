@@ -15,6 +15,8 @@ namespace base
         static constexpr size_t Director_createBeforeStructure_index = 18;
         static constexpr size_t Director_initBeforeStructure_index = 20;
         static constexpr size_t Director_calcBeforeStructure_index = 22;
+        static constexpr size_t ItemObj_stateEquipHang = 55;
+        static constexpr size_t ItemObj_stateInitComeBackDown = 80;
         
         // VMT hooks
         static void Item_ItemDirector_calcBeforeStructure(Item::ItemDirector *);
@@ -26,6 +28,8 @@ namespace base
         static s32 Item_GetNumInItemType(Item::eItemType);
         static s32 Item_GetExtraItemNum(Item::eItemType);
         static void Item_ItemObjBase_setStateSelfMove(Item::ItemObjBase *, sead::Vector2f *);
+        static void Item_ItemObjFlower_stateEquipHang(Item::ItemObjFlower *);
+        static void Item_ItemObjKouraB_stateEquipHang(Item::ItemObjKouraB *);
         static void Item_ItemObjKouraG_stateInitSelfMoveImpl(Item::ItemObjKouraG *);
 		static void Item_ItemObjKouraR_stateInitComeBackDown(Item::ItemObjKouraR *);
         static void Effect_KartEffect_calcTireEffectWheelSpin(Effect::KartEffect *);

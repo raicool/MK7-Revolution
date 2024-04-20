@@ -7,10 +7,12 @@ The following document shows a list of ideas that may get implemented in the fut
 - [x] Drop Items
 	- [ ] Mode (Drop, Pop, Throw, MKW, ...)
 	- [ ] Drop: other items (Star, Mushroom, Blooper, ...)
+- [x] Item Hang
+	- [ ] Others (Star, Blooper, ...)
+	- [ ] Bottom screen fix
 - [x] Item Limiters
 	- [ ] Shell fix
 - [ ] Flat Items
-- [ ] Draggable Items (Blue Shell, Fire Flower, ...)
 - [ ] Unrestrict Item Usage (Bullet Bill, respawn, ...)
 - [ ] Controllable Bullet Bill
 - [ ] Item Guru

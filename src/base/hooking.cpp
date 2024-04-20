@@ -13,6 +13,8 @@ namespace base
 		m_Item_GetExtraItemNum_hook("Item::GetExtraItemNum", g_pointers->m_Item_GetExtraItemNum, reinterpret_cast<void *>(&hooks::Item_GetExtraItemNum)),
 		m_Item_GetNumInItemType_hook("Item::GetNum_InItemType", g_pointers->m_Item_GetNumInItemType, reinterpret_cast<void *>(&hooks::Item_GetNumInItemType)),
 		m_Item_ItemObjBase_setStateSelfMove_hook("Item::ItemObjBase::setState_SelfMove", g_pointers->m_Item_ItemObjBase_setStateSelfMove, reinterpret_cast<void *>(&hooks::Item_ItemObjBase_setStateSelfMove)),
+		m_Item_ItemObjFlower_stateEquipHang_hook("Item::ItemObjFlower::stateEquip_Hang", g_pointers->m_Item_ItemObjFlower_stateEquipHang, reinterpret_cast<void *>(&hooks::Item_ItemObjFlower_stateEquipHang)),
+		m_Item_ItemObjKouraB_stateEquipHang_hook("Item::ItemObjKouraB::stateEquip_Hang", g_pointers->m_Item_ItemObjKouraB_stateEquipHang, reinterpret_cast<void *>(&hooks::Item_ItemObjKouraB_stateEquipHang)),
 		m_Item_ItemObjKouraG_stateInitSelfMoveImpl_hook("Item::ItemObjKouraG::stateInitSelfMoveImpl", g_pointers->m_Item_ItemObjKouraG_stateInitSelfMoveImpl, reinterpret_cast<void *>(&hooks::Item_ItemObjKouraG_stateInitSelfMoveImpl)),
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook("Item::ItemObjKouraR::stateInitComeBackDown", g_pointers->m_Item_ItemObjKouraR_stateInitComeBackDown, reinterpret_cast<void *>(&hooks::Item_ItemObjKouraR_stateInitComeBackDown)),
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook("Effect::KartEffect::_calcTireEffect_WheelSpin", g_pointers->m_Effect_KartEffect_calcTireEffectWheelSpin, reinterpret_cast<void *>(&hooks::Effect_KartEffect_calcTireEffectWheelSpin)),
@@ -53,6 +55,8 @@ namespace base
 		m_Item_GetExtraItemNum_hook.enable();
 		m_Item_GetNumInItemType_hook.enable();
 		m_Item_ItemObjBase_setStateSelfMove_hook.enable();
+		m_Item_ItemObjFlower_stateEquipHang_hook.enable();
+		m_Item_ItemObjKouraB_stateEquipHang_hook.enable();
 		m_Item_ItemObjKouraG_stateInitSelfMoveImpl_hook.enable();
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook.enable();
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook.enable();
@@ -89,6 +93,8 @@ namespace base
 		m_Effect_KartEffect_calcTireEffectWheelSpin_hook.disable();
 		m_Item_ItemObjKouraR_stateInitComeBackDown_hook.disable();
 		m_Item_ItemObjKouraG_stateInitSelfMoveImpl_hook.disable();
+		m_Item_ItemObjKouraB_stateEquipHang_hook.disable();
+		m_Item_ItemObjFlower_stateEquipHang_hook.disable();
 		m_Item_ItemObjBase_setStateSelfMove_hook.disable();
 		m_Item_GetNumInItemType_hook.disable();
 		m_Item_GetExtraItemNum_hook.disable();

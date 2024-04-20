@@ -14,6 +14,7 @@ namespace base
 		struct item
 		{
 			static bool blue_shell_battle_crash_fix(Item::ItemObjKouraR *);
+			static bool item_hang(Item::ItemObjBase *);
 			static void drop_items(Item::ItemObjBase *);
 			static std::optional<s32> item_limiters_extra_num(Item::eItemType);
 			static std::optional<s32> item_limiters_num(Item::eItemType);

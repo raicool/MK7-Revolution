@@ -33,6 +33,8 @@ SOURCES 	:= 	src \
 				src/base/hooks/Item \
 				src/base/hooks/Item/ItemDirector \
 				src/base/hooks/Item/ItemObjBase \
+				src/base/hooks/Item/ItemObjFlower \
+				src/base/hooks/Item/ItemObjKouraB \
 				src/base/hooks/Item/ItemObjKouraG \
 				src/base/hooks/Item/ItemObjKouraR \
 				src/base/hooks/Item/KartItem \

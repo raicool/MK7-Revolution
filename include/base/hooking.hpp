@@ -31,6 +31,8 @@ namespace base
         hook_types::detour_hook m_Item_GetExtraItemNum_hook;
         hook_types::detour_hook m_Item_GetNumInItemType_hook;
         hook_types::detour_hook m_Item_ItemObjBase_setStateSelfMove_hook;
+        hook_types::detour_hook m_Item_ItemObjFlower_stateEquipHang_hook;
+        hook_types::detour_hook m_Item_ItemObjKouraB_stateEquipHang_hook;
         hook_types::detour_hook m_Item_ItemObjKouraG_stateInitSelfMoveImpl_hook;
         hook_types::detour_hook m_Item_ItemObjKouraR_stateInitComeBackDown_hook;
         hook_types::detour_hook m_Effect_KartEffect_calcTireEffectWheelSpin_hook;

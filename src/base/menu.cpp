@@ -22,6 +22,7 @@ namespace base
 
         m_item_wheel_entry(new MenuEntry("Item Wheel", DEFAULT_ENTRY, entries::item::item_wheel_menu)),
         m_drop_items_entry(new MenuEntry("Drop Items", DEFAULT_ENTRY)),
+        m_item_hang_entry(new MenuEntry("Item Hang", DEFAULT_ENTRY, entries::item::item_hang_menu)),
         m_item_rain_entry(new MenuEntry("Item Rain", DEFAULT_ENTRY, entries::item::item_rain_menu)),
         m_item_limiters_entry(new MenuEntry("Item Limiters", DEFAULT_ENTRY, entries::item::item_limiters_menu)),
         m_zero_gravity_shells_entry(new MenuEntry("Zero Gravity Shells", DEFAULT_ENTRY)),
@@ -70,6 +71,7 @@ namespace base
         {
             *item += m_item_wheel_entry;
             *item += m_drop_items_entry;
+            *item += m_item_hang_entry;
             *item += m_item_rain_entry;
             *item += m_item_limiters_entry;
             *item += m_zero_gravity_shells_entry;
