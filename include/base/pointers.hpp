@@ -27,8 +27,8 @@ namespace base
 		game_types::Item_KartItem_setItemForce_t m_Item_KartItem_setItemForce;
 
 		void *m_Effect_KartEffect_calcTireEffectWheelSpin;
-		void *m_Item_GetExtraItemNum;
-		void *m_Item_GetNumInItemType;
+		void *m_Item_GetExtraItemNum_0x8;
+		void *m_Item_GetNumInItemType_0x8;
 		void *m_Item_ItemObjBase_setStateSelfMove;
 		void *m_Item_ItemObjFlower_stateEquipHang;
 		void *m_Item_ItemObjKouraB_stateEquipHang;

@@ -25,8 +25,6 @@ namespace base
         static void Kart_Director_calcBeforeStructure(Kart::Director *);
 
         // Detour hooks
-        static s32 Item_GetNumInItemType(Item::eItemType);
-        static s32 Item_GetExtraItemNum(Item::eItemType);
         static void Item_ItemObjBase_setStateSelfMove(Item::ItemObjBase *, sead::Vector2f *);
         static void Item_ItemObjFlower_stateEquipHang(Item::ItemObjFlower *);
         static void Item_ItemObjKouraB_stateEquipHang(Item::ItemObjKouraB *);
@@ -42,6 +40,8 @@ namespace base
         static void System_KDPadInputer_calcState(System::KDPadInputer *);
 
         // Naked hooks
+        static NAKED void Item_GetNumInItemType_0x8();
+        static NAKED void Item_GetExtraItemNum_0x8();
         static NAKED void Kart_VehicleReact_calcReact_0x20();
         static NAKED void Net_NetworkEventModule_calc_0xB4();
         static NAKED void RaceSys_ModeManagerRace_calcCountDown_0x18();

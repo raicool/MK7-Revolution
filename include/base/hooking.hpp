@@ -28,8 +28,6 @@ namespace base
         hook_types::vmt_hook m_Item_KartItem_hook;
         hook_types::vmt_hook m_Kart_Director_hook;
 
-        hook_types::detour_hook m_Item_GetExtraItemNum_hook;
-        hook_types::detour_hook m_Item_GetNumInItemType_hook;
         hook_types::detour_hook m_Item_ItemObjBase_setStateSelfMove_hook;
         hook_types::detour_hook m_Item_ItemObjFlower_stateEquipHang_hook;
         hook_types::detour_hook m_Item_ItemObjKouraB_stateEquipHang_hook;
@@ -44,6 +42,8 @@ namespace base
         hook_types::detour_hook m_RaceSys_LapRankChecker_calcLapPosition_hook;
         hook_types::detour_hook m_System_KDPadInputer_calcInput_hook;
 
+        hook_types::naked_hook m_Item_GetExtraItemNum_0x8_hook;
+        hook_types::naked_hook m_Item_GetNumInItemType_0x8_hook;
         hook_types::naked_hook m_Kart_VehicleReact_calcReact_0x20_hook; // FIXME: CTRPF MITM Hook doesn't work on routines
         hook_types::naked_hook m_Net_NetworkEventModule_calc_0xB4_hook;
         hook_types::naked_hook m_RaceSys_ModeManagerRace_calcCountDown_0x18_hook;

@@ -5,8 +5,6 @@
 #include <Net/NetworkEventModule.hpp>
 #include <RaceSys/ModeManagerBase.hpp> // RaceSys::ModeManagerBase::ERaceState
 
-#include <optional>
-
 namespace base
 {
 	struct features
@@ -16,8 +14,8 @@ namespace base
 			static bool blue_shell_battle_crash_fix(Item::ItemObjKouraR *);
 			static bool item_hang(Item::ItemObjBase *);
 			static void drop_items(Item::ItemObjBase *);
-			static std::optional<s32> item_limiters_extra_num(Item::eItemType);
-			static std::optional<s32> item_limiters_num(Item::eItemType);
+			static s32 item_limiters_extra_num(Item::eItemType);
+			static s32 item_limiters_num(Item::eItemType);
 			static void item_rain(Item::KartItem *);
 			static void item_wheel_calc(Item::KartItem *);
 			static void item_wheel_init(Item::KartItem *);
