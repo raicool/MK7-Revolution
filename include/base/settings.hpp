@@ -79,7 +79,15 @@ namespace base
 				},
 				"protections":
 				{
-					"network": true
+					"item":
+					{
+						"killer_items": false,
+						"tail_items": false
+					},
+					"network":
+					{
+						"system_info": true
+					}
 				}
 			}
 		})"_json;

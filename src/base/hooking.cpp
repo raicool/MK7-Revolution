@@ -10,6 +10,7 @@ namespace base
 		m_Item_KartItem_hook("Item::KartItem", g_pointers->m_Item_KartItem, hooks::Director_count),
 		m_Kart_Director_hook("Kart::Director", g_pointers->m_Kart_Director, hooks::Director_count),
 
+		m_Item_ItemDirector_itemEventRecvHandler_hook("Item::ItemDirector::_itemEventRecvHandler", g_pointers->m_Item_ItemDirector_itemEventRecvHandler, reinterpret_cast<void *>(&hooks::Item_ItemDirector_itemEventRecvHandler)),
 		m_Item_ItemObjBase_setStateSelfMove_hook("Item::ItemObjBase::setState_SelfMove", g_pointers->m_Item_ItemObjBase_setStateSelfMove, reinterpret_cast<void *>(&hooks::Item_ItemObjBase_setStateSelfMove)),
 		m_Item_ItemObjFlower_stateEquipHang_hook("Item::ItemObjFlower::stateEquip_Hang", g_pointers->m_Item_ItemObjFlower_stateEquipHang, reinterpret_cast<void *>(&hooks::Item_ItemObjFlower_stateEquipHang)),
 		m_Item_ItemObjKouraB_stateEquipHang_hook("Item::ItemObjKouraB::stateEquip_Hang", g_pointers->m_Item_ItemObjKouraB_stateEquipHang, reinterpret_cast<void *>(&hooks::Item_ItemObjKouraB_stateEquipHang)),
@@ -52,6 +53,7 @@ namespace base
 		m_Item_KartItem_hook.enable();
 		m_Kart_Director_hook.enable();
 
+		m_Item_ItemDirector_itemEventRecvHandler_hook.enable();
 		m_Item_ItemObjBase_setStateSelfMove_hook.enable();
 		m_Item_ItemObjFlower_stateEquipHang_hook.enable();
 		m_Item_ItemObjKouraB_stateEquipHang_hook.enable();
@@ -98,6 +100,7 @@ namespace base
 		m_Item_ItemObjKouraB_stateEquipHang_hook.disable();
 		m_Item_ItemObjFlower_stateEquipHang_hook.disable();
 		m_Item_ItemObjBase_setStateSelfMove_hook.disable();
+		m_Item_ItemDirector_itemEventRecvHandler_hook.disable();
 
 		m_Kart_Director_hook.disable();
 		m_Item_KartItem_hook.disable();

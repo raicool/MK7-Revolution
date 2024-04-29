@@ -17,6 +17,7 @@ INCLUDES	:= 	include \
 				vendor/json/single_include \
 				vendor/magic_enum/include \
 				vendor/mk7-memory/include \
+				vendor/mk7-memory/vendor/nnheaders/include \
 				vendor/mk7-memory/vendor/sead/include
 SOURCES 	:= 	src \
 				src/base \
@@ -58,7 +59,7 @@ SOURCES 	:= 	src \
 ARCH		:= -march=armv6k -mtune=mpcore -mfloat-abi=hard -mtp=soft
 
 CFLAGS		:= $(ARCH) -Os -mword-relocations -fomit-frame-pointer -ffunction-sections -fno-strict-aliasing -Wno-psabi -Wno-invalid-offsetof
-CFLAGS		+= $(INCLUDE) -D__3DS__ -DMAGIC_ENUM_RANGE_MIN=0 -DMAGIC_ENUM_RANGE_MAX=255 #-D_DEBUG
+CFLAGS		+= $(INCLUDE) -D__3DS__ -DNNSDK -DMAGIC_ENUM_RANGE_MIN=0 -DMAGIC_ENUM_RANGE_MAX=255 #-D_DEBUG
 
 CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++23
 

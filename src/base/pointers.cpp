@@ -26,6 +26,7 @@ namespace base
 		batch.add("Item::ItemDirector", "20 41 80 E5 24 41 80 E5 28 41 80 E5 10 80 BD E8", [this](memory::handle handle)
 		{
 			m_Item_ItemDirector = handle.add(0x10).as<decltype(m_Item_ItemDirector)>();
+			m_Item_ItemDirector_itemEventRecvHandler = **handle.add(0x14).as<decltype(m_Item_ItemDirector_itemEventRecvHandler) **>();
 		});
 
 		batch.add("Item::ItemObjFlower", "00 30 92 E5 F8 31 80 E5 04 30 92 E5 FC 31 80 E5", [this](memory::handle handle)

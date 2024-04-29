@@ -2,7 +2,8 @@
 
 #include <forward.hpp>
 
-#include <Net/NetworkEventModule.hpp>
+#include <Net/NetworkEventModule.hpp> // Net::NetworkEventModule::Slot
+#include <Net/NetworkItemEventDataMgr.hpp> // Net::NetworkItemEventDataMgr::SlotData
 #include <RaceSys/ModeManagerBase.hpp> // RaceSys::ModeManagerBase::ERaceState
 
 namespace base
@@ -49,6 +50,7 @@ namespace base
 			static void invisibility(Kart::NetData *);
 			static u32 event_frame_modifier(Net::NetworkEventModule::Slot *);
 			static void no_disconnect(RaceSys::LapRankChecker *);
+			static bool protections_item(Item::ItemDirector *, Net::NetworkItemEventDataMgr::SlotData *);
 			static bool protections_system_info(Net::NetworkReceivedInfo *);
 		};
 	};

@@ -3,6 +3,7 @@
 #include <forward.hpp>
 
 #include <Kart/VehicleReact.hpp> // Kart::VehicleReact::EAcdType, Kart::VehicleReact::ECallType
+#include <Net/NetworkItemEventDataMgr.hpp> // Net::NetworkItemEventDataMgr::SlotData
 #include <RaceSys/LapRankChecker.hpp> // RaceSys::LapRankChecker::KartInfo
 
 #include <math/seadVectorFwd.h>
@@ -25,6 +26,7 @@ namespace base
         static void Kart_Director_calcBeforeStructure(Kart::Director *);
 
         // Detour hooks
+        static bool Item_ItemDirector_itemEventRecvHandler(Item::ItemDirector *, Net::NetworkItemEventDataMgr::SlotData *);
         static void Item_ItemObjBase_setStateSelfMove(Item::ItemObjBase *, sead::Vector2f *);
         static void Item_ItemObjFlower_stateEquipHang(Item::ItemObjFlower *);
         static void Item_ItemObjKouraB_stateEquipHang(Item::ItemObjKouraB *);
