@@ -1,7 +1,5 @@
 #pragma once
 
-#include <nlohmann/json.hpp>
-
 namespace base
 {
 	class settings
@@ -13,18 +11,14 @@ namespace base
 		bool load();
 		bool store();
 		bool reset();
-		
-		nlohmann::json m_options;
+
+		struct options
+		{
+		}
+		m_options{};
 
 	private:
 		bool load_impl();
-
-		static void emplace_traverse(nlohmann::json &, nlohmann::json const &, std::vector<std::tuple<nlohmann::json *, std::string, nlohmann::json>> &);
-		static void erase_traverse(nlohmann::json &, nlohmann::json const &, std::vector<std::pair<nlohmann::json *, std::string>> &);
-
-		nlohmann::json const m_default_options =
-		R"({
-		})"_json;
 	};
 
 	inline settings g_settings;

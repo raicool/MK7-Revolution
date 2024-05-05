@@ -14,7 +14,7 @@ PLGINFO 	:= 	CTRPF.plgInfo
 
 BUILD		:= 	build
 INCLUDES	:= 	include \
-				vendor/json/single_include
+				vendor/glaze/include
 SOURCES 	:= 	src \
 				src/base \
 				src/base/entries/debug \
