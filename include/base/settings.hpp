@@ -1,6 +1,10 @@
 #pragma once
 
-#include <nlohmann/json.hpp>
+#include <map>
+#include <set>
+
+#include <Item/eItemSlot.hpp>
+#include <Item/eItemType.hpp>
 
 namespace base
 {
@@ -13,84 +17,108 @@ namespace base
 		bool load();
 		bool store();
 		bool reset();
-		
-		nlohmann::json m_options;
+
+		struct options
+		{
+			struct item
+			{
+				std::set<Item::eItemType> item_hang
+				{
+					Item::eItemType::KouraB,
+					Item::eItemType::Flower
+				};
+
+				std::map<Item::eItemType, std::pair<bool, u32>> item_limiters
+				{
+					{ Item::eItemType::KouraB, { true, 8 } },
+					{ Item::eItemType::Bomhei, { true, 32 } }
+				};
+
+				struct item_rain
+				{
+					std::set<Item::eItemType> items
+					{
+						Item::eItemType::KouraG,
+						Item::eItemType::KouraR,
+						Item::eItemType::Banana,
+						Item::eItemType::Kinoko,
+						Item::eItemType::Star
+					};
+					bool owned{ true };
+					bool multi{ false };
+					std::pair<bool, float> speed{ true, 64.f };
+					u32 delay{ 15 };
+					size_t shape{ 0 };
+					float height{ 128.f };
+					float width{ 256.f };
+				}
+				item_rain;
+
+				std::set<Item::eItemSlot> item_wheel
+				{
+					Item::eItemSlot::Banana,
+					Item::eItemSlot::KouraG,
+					Item::eItemSlot::KouraR,
+					Item::eItemSlot::Kinoko,
+					Item::eItemSlot::Bomhei,
+					Item::eItemSlot::Gesso,
+					Item::eItemSlot::KouraB,
+					Item::eItemSlot::Star,
+					Item::eItemSlot::Killer,
+					Item::eItemSlot::Thunder,
+					Item::eItemSlot::Flower,
+					Item::eItemSlot::Tail,
+					Item::eItemSlot::Seven,
+				};
+			}
+			item;
+
+			struct kart
+			{
+				size_t instant_miniturbo{ 1 };
+
+				bool intangibility{ true };
+
+				struct kart_statuses
+				{
+					bool blink{ true };
+					bool ink{ true };
+					bool press{ false };
+					bool star{ false };
+					bool thunder{ false };
+					bool draft{ false };
+				}
+				kart_statuses;
+			}
+			kart;
+
+			struct network
+			{
+				u32 event_frame_modifier{ 2 };
+
+				struct protections
+				{
+					struct item
+					{
+						bool killer_items{ false };
+						bool tail_items{ false };
+					}
+					item;
+
+					struct network
+					{
+						bool system_info{ true };
+					}
+					network;
+				}
+				protections;
+			}
+			network;
+		}
+		m_options{};
 
 	private:
 		bool load_impl();
-
-		static void emplace_traverse(nlohmann::json &, nlohmann::json const &, std::vector<std::tuple<nlohmann::json *, std::string, nlohmann::json>> &);
-		static void erase_traverse(nlohmann::json &, nlohmann::json const &, std::vector<std::pair<nlohmann::json *, std::string>> &);
-
-		nlohmann::json const m_default_options =
-		R"({
-			"item":
-			{
-				"item_hang":
-				[
-					5, 13
-				],
-				"item_limiters":
-				[
-					[ 5, [true, 8] ],
-					[ 9, [true, 32] ]
-				],
-				"item_rain":
-				{
-					"items": [0, 1, 2, 3, 4],
-					"owned": true,
-					"multi": false,
-					"speed": { "status": true, "value": 64.0 },
-					"delay": 15,
-					"type": 0,
-					"height": 128.0,
-					"width": 256.0
-				},
-				"item_wheel":
-				{
-					"items": [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14]
-				}
-			},
-			"kart":
-			{
-				"instant_miniturbo":
-				{
-					"type": 1
-				},
-				"intangibility":
-				{
-					"invert": true
-				},
-				"kart_statuses":
-				{
-					"blink": true,
-					"ink": true,
-					"press": false,
-					"star": false,
-					"thunder": false,
-					"draft": false
-				}
-			},
-			"network":
-			{
-				"event_frame_modifier":
-				{
-					"value": 2
-				},
-				"protections":
-				{
-					"item":
-					{
-						"killer_items": false,
-						"tail_items": false
-					},
-					"network":
-					{
-						"system_info": true
-					}
-				}
-			}
-		})"_json;
 	};
 
 	inline settings g_settings;

@@ -3,6 +3,8 @@
 #include <base/files.hpp>
 #include <base/logger.hpp>
 
+#include <glaze/glaze.hpp>
+
 #include <CTRPluginFramework.hpp>
 
 namespace base
@@ -11,33 +13,15 @@ namespace base
 
 	bool settings::load()
 	{
-		if (load_impl())
-		{
-			std::vector<std::tuple<nlohmann::json *, std::string, nlohmann::json>> additions;
-			emplace_traverse(m_options, m_default_options, additions);
-			for (auto &[options, key, value] : additions)
-				options->emplace(key, value);
-
-			std::vector<std::pair<nlohmann::json *, std::string>> removals;
-			erase_traverse(m_options, m_default_options, removals);
-			for (auto &[options, key] : removals)
-				options->erase(key);
-
-			if (!additions.empty() || !removals.empty())
-				return store();
-
-			return true;
-		}
-
-		return reset();
+		return load_impl() ? true : reset();
 	}
 
 	bool settings::store()
 	{
 		if (g_files->m_settings.Clear() == File::OPResult::SUCCESS)
 		{
-			auto dump = m_options.dump(4);
-			return g_files->m_settings.Write(dump.c_str(), strlen(dump.c_str())) == File::OPResult::SUCCESS;
+			auto dump = glz::write_json(m_options);
+			return g_files->m_settings.Write(dump.data(), dump.size()) == File::OPResult::SUCCESS;
 		}
 
 		return false;
@@ -47,11 +31,11 @@ namespace base
 	{
 		if (g_files->m_settings.Clear() == File::OPResult::SUCCESS)
 		{
-			auto dump = m_default_options.dump(4);
-			
-			if (g_files->m_settings.Write(dump.c_str(), strlen(dump.c_str())) == File::OPResult::SUCCESS)
+			auto opts = options{};
+			auto dump = glz::write_json(opts);
+			if (g_files->m_settings.Write(dump.data(), dump.size()) == File::OPResult::SUCCESS)
 			{
-				m_options = m_default_options;
+				m_options = opts;
 				g_logger.debug("Settings reset.");
 				return true;
 			}
@@ -62,19 +46,19 @@ namespace base
 
 	bool settings::load_impl()
 	{
-		bool result{};
+		auto result = false;
 
-		auto size = g_files->m_settings.GetSize();
-
-		if (size > 0)
+		if (auto size = g_files->m_settings.GetSize(); size > 0)
 		{
 			if (auto buffer = new char[size]; buffer != nullptr)
 			{
 				if (g_files->m_settings.Read(buffer, size) == File::OPResult::SUCCESS)
 				{
-					std::string dump(buffer, size);
-					m_options = nlohmann::json::parse(dump);
-					result = true;
+					if (auto data = glz::read_json<options>(buffer))
+					{
+						m_options = data.value();
+						result = true;
+					}
 				}
 
 				delete[] buffer;
@@ -82,43 +66,5 @@ namespace base
 		}
 
         return result;
-	}
-
-	void settings::emplace_traverse(nlohmann::json &options, nlohmann::json const &default_options, std::vector<std::tuple<nlohmann::json *, std::string, nlohmann::json>> &additions)
-	{
-		for (auto const &[key, value] : default_options.items())
-		{
-			if (value.is_object())
-			{
-				if (options.contains(key))
-					emplace_traverse(options.at(key), default_options.at(key), additions);
-				else
-					additions.push_back({ &options, key, value});
-			}
-			else
-			{
-				if (!options.contains(key))
-					additions.push_back({ &options, key, value });
-			}
-		}
-	}
-
-	void settings::erase_traverse(nlohmann::json &options, nlohmann::json const &default_options, std::vector<std::pair<nlohmann::json *, std::string>> &removals)
-	{
-		for (auto const &[key, value] : options.items())
-		{
-			if (value.is_object())
-			{
-				if (default_options.contains(key))
-					erase_traverse(options.at(key), default_options.at(key), removals);
-				else
-					removals.push_back({ &options, key });
-			}
-			else
-			{
-				if (!default_options.contains(key))
-					removals.push_back({ &options, key });
-			}
-		}
 	}
 }

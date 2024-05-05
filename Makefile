@@ -14,7 +14,7 @@ PLGINFO 	:= 	CTRPF.plgInfo
 
 BUILD		:= 	build
 INCLUDES	:= 	include \
-				vendor/json/single_include \
+				vendor/glaze/include \
 				vendor/magic_enum/include \
 				vendor/mk7-memory/include \
 				vendor/mk7-memory/vendor/nnheaders/include \

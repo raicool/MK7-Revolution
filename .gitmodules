@@ -1,6 +1,6 @@
-[submodule "vendor/json"]
-	path = vendor/json
-	url = https://github.com/nlohmann/json
+[submodule "vendor/glaze"]
+	path = vendor/glaze
+	url = https://github.com/Anto726/glaze
 [submodule "vendor/magic_enum"]
 	path = vendor/magic_enum
 	url = https://github.com/Neargye/magic_enum
