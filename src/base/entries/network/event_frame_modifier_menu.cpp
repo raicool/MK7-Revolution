@@ -12,7 +12,7 @@ namespace base
 		keyboard.DisplayTopScreen = true;
         keyboard.IsHexadecimal(false);
 
-        auto const value = g_settings.m_options["network"]["event_frame_modifier"]["value"].get<u64 *>();
+        auto &event_frame_modifier = g_settings.m_options.network.event_frame_modifier;
 
         int choice;
 
@@ -20,14 +20,14 @@ namespace base
 		{
             keyboard.Populate(std::vector<std::string>
 			{
-				std::format("Value ({})", *value)
+				std::format("Value ({})", event_frame_modifier)
 			});
 
             choice = keyboard.Open();
 
             switch (choice)
 			{
-                case 0: keyboard.Open(*value, *value); break;
+                case 0: keyboard.Open(event_frame_modifier, event_frame_modifier); break;
             }
         }
         while (choice >= 0);

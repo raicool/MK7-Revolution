@@ -12,12 +12,7 @@ namespace base
         auto keyboard = CTRPluginFramework::Keyboard();
         keyboard.DisplayTopScreen = true;
 
-        auto &settings = g_settings.m_options["network"]["protections"];
-        auto &item = settings["item"];
-        auto item_killer_items = item["killer_items"].get<bool *>();
-        auto item_tail_items = item["tail_items"].get<bool *>();
-        auto &network = settings["network"];
-        auto network_system_info = network["system_info"].get<bool *>();
+        auto &protections = g_settings.m_options.network.protections;
 
         int choice;
 
@@ -42,16 +37,16 @@ namespace base
                     {
                         keyboard.Populate(std::vector<std::string>
                         {
-                            std::format("Killer Items ({})", menu::s_toggles[*item_killer_items]),
-                            std::format("Tail Items ({})", menu::s_toggles[*item_tail_items])
+                            std::format("Killer Items ({})", menu::s_toggles[protections.item.killer_items]),
+                            std::format("Tail Items ({})", menu::s_toggles[protections.item.tail_items])
                         });
 
                         choice = keyboard.Open();
 
                         switch (choice)
                         {
-                            case 0: *item_killer_items ^= true; break;
-                            case 1: *item_tail_items ^= true; break;
+                            case 0: protections.item.killer_items ^= true; break;
+                            case 1: protections.item.tail_items ^= true; break;
                         }
                     }
                     while (choice >= 0);
@@ -67,14 +62,14 @@ namespace base
                     {
                         keyboard.Populate(std::vector<std::string>
                         {
-                            std::format("System Info ({})", menu::s_toggles[*network_system_info])
+                            std::format("System Info ({})", menu::s_toggles[protections.network.system_info])
                         });
 
                         choice = keyboard.Open();
 
                         switch (choice)
                         {
-                            case 0: *network_system_info ^= true; break;
+                            case 0: protections.network.system_info ^= true; break;
                         }
                     }
                     while (choice >= 0);

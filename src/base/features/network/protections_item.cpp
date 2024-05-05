@@ -12,13 +12,13 @@ namespace base
     {
         if (g_menu->m_protections_entry->IsActivated())
         {
-            auto const &settings = g_settings.m_options["network"]["protections"]["item"];
+            auto const &protections = g_settings.m_options.network.protections;
 
             auto const &kart_item = _this->m_kart_items.at(data->player_id);
             auto const &status_flags = kart_item->m_info_proxy->m_vehicle->m_status_flags;
 
-            auto const killer_protection = [&]() { return settings["killer_items"] && status_flags.killer; };
-            auto const tail_protection = [&]() { return settings["tail_items"] && status_flags.tail; };
+            auto const killer_protection = [&]() { return protections.item.killer_items && status_flags.killer; };
+            auto const tail_protection = [&]() { return protections.item.tail_items && status_flags.tail; };
 
             switch (data->event_type)
             {

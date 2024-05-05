@@ -5,10 +5,7 @@
 
 #include <magic_enum/magic_enum.hpp>
 
-#include <Item/eItemType.hpp>
-
 #include <format>
-#include <set>
 
 namespace base
 {
@@ -17,27 +14,25 @@ namespace base
         auto keyboard = CTRPluginFramework::Keyboard(entry->Name());
         keyboard.DisplayTopScreen = true;
 
-        auto settings = g_settings.m_options["item"]["item_hang"].get<std::set<Item::eItemType>>();
+        auto const items = std::to_array({ Item::eItemType::KouraB, Item::eItemType::Flower });
+        
+        auto &item_hang = g_settings.m_options.item.item_hang;
 
         int choice;
 
         do
 		{
-            auto const allowed = std::to_array({ Item::eItemType::KouraB, Item::eItemType::Flower });
-
             auto options = std::vector<std::string>();
-            std::for_each(allowed.begin(), allowed.end(), [&](auto const &i) { options.push_back(std::format("{} ({})", magic_enum::enum_name(i), menu::s_toggles[settings.contains(i)])); });
+            std::for_each(items.begin(), items.end(), [&](auto const &i) { options.push_back(std::format("{} ({})", magic_enum::enum_name(i), menu::s_toggles[item_hang.contains(i)])); });
             keyboard.Populate(options);
 
             if (choice = keyboard.Open(); choice < 0)
                 break;
 
-            if (auto const &item = allowed.at(choice); settings.contains(item))
-                settings.erase(item);
+            if (auto const &item = items.at(choice); item_hang.contains(item))
+                item_hang.erase(item);
             else
-                settings.emplace(item);
-
-            g_settings.m_options["item"]["item_hang"] = settings;
+                item_hang.emplace(item);
         }
         while (choice >= 0);
     }

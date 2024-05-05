@@ -13,27 +13,27 @@ namespace base
 	{
 		if (g_menu->m_kart_statuses_entry->IsActivated() && _this->m_vehicle->m_is_master && !_this->m_vehicle->m_is_net_recv)
 		{
-			auto const &settings = g_settings.m_options["kart"]["kart_statuses"];
+			auto const &kart_statuses = g_settings.m_options.kart.kart_statuses;
 
-			if (settings["blink"] && _this->m_vehicle->m_invincibility_frames <= 1)
+			if (kart_statuses.blink && _this->m_vehicle->m_invincibility_frames <= 1)
 				_this->m_vehicle->m_invincibility_frames = *g_pointers->m_invincibility_frames_invisible_amount + *g_pointers->m_invincibility_frames_visible_amount;
 			
-			if (settings["ink"] && _this->m_vehicle->m_ink_frames <= c_status_threshold)
+			if (kart_statuses.ink && _this->m_vehicle->m_ink_frames <= c_status_threshold)
 				_this->m_vehicle->m_ink_frames = c_status_threshold + 1;
 
-			if (settings["press"] && _this->m_vehicle->m_press_frames <= c_status_threshold)
+			if (kart_statuses.press && _this->m_vehicle->m_press_frames <= c_status_threshold)
 			{
 				_this->m_vehicle->m_press_frames = c_status_threshold + 1;
 				_this->m_vehicle->m_press_size = *g_pointers->m_press_frames_kart_size;
 			}
 
-			if (settings["star"] && _this->m_vehicle->m_star_frames <= c_status_threshold)
+			if (kart_statuses.star && _this->m_vehicle->m_star_frames <= c_status_threshold)
 				_this->m_vehicle->m_star_frames = c_status_threshold + 1;
 
-			if (settings["thunder"] && _this->m_vehicle->m_thunder_frames <= c_status_threshold)
+			if (kart_statuses.thunder && _this->m_vehicle->m_thunder_frames <= c_status_threshold)
 				_this->m_vehicle->m_thunder_frames = c_status_threshold + 1;
 
-			if (settings["draft"])
+			if (kart_statuses.draft)
 				_this->m_vehicle->m_draft_frames = c_status_threshold;
 		}
 	}

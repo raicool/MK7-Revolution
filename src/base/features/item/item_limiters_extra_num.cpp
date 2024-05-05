@@ -9,7 +9,7 @@ namespace base
     {
         // Sets "extra" (single item modes) amounts to 0
         if (g_menu->m_item_limiters_entry->IsActivated())
-            if (auto const data = g_settings.m_options["item"]["item_limiters"].get<std::map<Item::eItemType, std::pair<bool, u64>>>(); data.contains(type) && data.at(type).first)
+            if (auto const &item_limiters = g_settings.m_options.item.item_limiters; item_limiters.contains(type) && item_limiters.at(type).first)
                 return 0;
 
         return -1;

@@ -13,13 +13,7 @@ namespace base
 		keyboard.DisplayTopScreen = true;
 		keyboard.IsHexadecimal(false);
 
-        auto &settings = g_settings.m_options["kart"]["kart_statuses"];
-        auto blink = settings["blink"].get<bool *>();
-        auto ink = settings["ink"].get<bool *>();
-        auto press = settings["press"].get<bool *>();
-        auto star = settings["star"].get<bool *>();
-        auto thunder = settings["thunder"].get<bool *>();
-        auto draft = settings["draft"].get<bool *>();
+        auto &kart_statuses = g_settings.m_options.kart.kart_statuses;
 
         int choice;
 
@@ -27,24 +21,24 @@ namespace base
 		{
 			keyboard.Populate(std::vector<std::string>
 			{
-                std::format("Blink ({})", menu::s_toggles[*blink]),
-				std::format("Ink ({})", menu::s_toggles[*ink]),
-				std::format("Press ({})", menu::s_toggles[*press]),
-				std::format("Star ({})", menu::s_toggles[*star]),
-				std::format("Thunder ({})", menu::s_toggles[*thunder]),
-                std::format("Draft ({})", menu::s_toggles[*draft]),
+                std::format("Blink ({})", menu::s_toggles[kart_statuses.blink]),
+				std::format("Ink ({})", menu::s_toggles[kart_statuses.ink]),
+				std::format("Press ({})", menu::s_toggles[kart_statuses.press]),
+				std::format("Star ({})", menu::s_toggles[kart_statuses.star]),
+				std::format("Thunder ({})", menu::s_toggles[kart_statuses.thunder]),
+                std::format("Draft ({})", menu::s_toggles[kart_statuses.draft]),
 			});
 
 			choice = keyboard.Open();
 
 			switch (choice)
 			{
-                case 0: *blink ^= true; break;
-				case 1: *ink ^= true; break;
-                case 2: *press ^= true; break;
-                case 3: *star ^= true; break;
-                case 4: *thunder ^= true; break;
-                case 5: *draft ^= true; break;
+                case 0: kart_statuses.blink ^= true; break;
+				case 1: kart_statuses.ink ^= true; break;
+                case 2: kart_statuses.press ^= true; break;
+                case 3: kart_statuses.star ^= true; break;
+                case 4: kart_statuses.thunder ^= true; break;
+                case 5: kart_statuses.draft ^= true; break;
             }
         }
         while (choice >= 0);

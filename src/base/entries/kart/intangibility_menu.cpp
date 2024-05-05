@@ -12,7 +12,7 @@ namespace base
 		auto keyboard = CTRPluginFramework::Keyboard(entry->Name());
 		keyboard.DisplayTopScreen = true;
 
-		auto invert = g_settings.m_options["kart"]["intangibility"]["invert"].get<bool *>();
+		auto &intangibility = g_settings.m_options.kart.intangibility;
 
 		int choice;
 
@@ -20,14 +20,14 @@ namespace base
 		{
 			keyboard.Populate(std::vector<std::string>
 			{
-				std::format("Invert: {}", menu::s_toggles[*invert])
+				std::format("Invert: {}", menu::s_toggles[intangibility])
 			});
 
 			choice = keyboard.Open();
 
 			switch (choice)
 			{
-				case 0: *invert ^= true; break;
+				case 0: intangibility ^= true; break;
 			}
 		}
 		while (choice >= 0);
