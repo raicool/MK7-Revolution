@@ -4,6 +4,7 @@ The following document shows a list of ideas that may get implemented in the fut
 ### Item
 - [x] Item Wheel
 	- [ ] Networking part
+	- [ ] Stock delay bypass
 - [x] Drop Items
 	- [ ] Mode (Drop, Pop, Throw, MKW, ...)
 	- [ ] Drop: other items (Star, Mushroom, Blooper, ...)
@@ -16,7 +17,6 @@ The following document shows a list of ideas that may get implemented in the fut
 - [ ] Unrestrict Item Usage (Bullet Bill, respawn, ...)
 - [ ] Controllable Bullet Bill
 - [ ] Item Guru
-- [ ] Configurable Rapid Fire
 - [ ] Disable Lightning Flashes
 
 ### Kart

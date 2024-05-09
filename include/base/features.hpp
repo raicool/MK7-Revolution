@@ -6,6 +6,9 @@
 #include <Net/NetworkItemEventDataMgr.hpp> // Net::NetworkItemEventDataMgr::SlotData
 #include <RaceSys/ModeManagerBase.hpp> // RaceSys::ModeManagerBase::ERaceState
 
+#include <controller/seadController.h> // sead::Controller
+#include <prim/seadBitFlag.h> // sead::BitFlag32
+
 namespace base
 {
 	struct features
@@ -18,6 +21,8 @@ namespace base
 			static s32 item_limiters_extra_num(Item::eItemType);
 			static s32 item_limiters_num(Item::eItemType);
 			static void item_rain(Item::KartItem *);
+			static sead::BitFlag32 item_rapidfire_block(sead::Controller *);
+			static bool item_rapidfire_execute();
 			static void item_wheel_calc(Item::KartItem *);
 			static void item_wheel_init(Item::KartItem *);
 			static void zero_gravity_shells(Item::ItemObjKouraG *);

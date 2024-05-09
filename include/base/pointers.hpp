@@ -29,6 +29,8 @@ namespace base
 		void *m_Effect_KartEffect_calcTireEffectWheelSpin;
 		void *m_Item_GetExtraItemNum_0x8;
 		void *m_Item_GetNumInItemType_0x8;
+		void *m_Item_ItemDirector_calcKeyInputEachPlayer_0x78;
+		void *m_Item_ItemDirector_calcKeyInputEachPlayer_0xE8;
 		void *m_Item_ItemDirector_itemEventRecvHandler;
 		void *m_Item_ItemObjBase_setStateSelfMove;
 		void *m_Item_ItemObjFlower_stateEquipHang;

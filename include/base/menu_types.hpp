@@ -9,6 +9,11 @@ namespace base::menu_types
 		u32 count;
 	};
 
+	struct item_rapidfire_data_t
+	{
+		u32 count;
+	};
+
 	struct item_wheel_data_t
 	{
 		size_t index;

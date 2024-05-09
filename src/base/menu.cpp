@@ -21,6 +21,7 @@ namespace base
         m_plugin_menu(new PluginMenu(NAME, MAJOR_VERSION, MINOR_VERSION, REVISION_VERSION, ABOUT)),
 
         m_item_wheel_entry(new MenuEntry("Item Wheel", DEFAULT_ENTRY, entries::item::item_wheel_menu)),
+        m_item_rapidfire_entry(new MenuEntry("Item Rapid-Fire", DEFAULT_ENTRY, entries::item::item_rapidfire_menu)),
         m_drop_items_entry(new MenuEntry("Drop Items", DEFAULT_ENTRY)),
         m_item_hang_entry(new MenuEntry("Item Hang", DEFAULT_ENTRY, entries::item::item_hang_menu)),
         m_item_rain_entry(new MenuEntry("Item Rain", DEFAULT_ENTRY, entries::item::item_rain_menu)),
@@ -70,6 +71,7 @@ namespace base
         if (auto item = new MenuFolder("Item"))
         {
             *item += m_item_wheel_entry;
+            *item += m_item_rapidfire_entry;
             *item += m_drop_items_entry;
             *item += m_item_hang_entry;
             *item += m_item_rain_entry;
@@ -125,6 +127,7 @@ namespace base
     {
         // Item
         *GetArg<menu_types::item_rain_data_t>(m_item_rain_entry) = {};
+        *GetArg<menu_types::item_rapidfire_data_t>(m_item_rapidfire_entry) = {};
         *GetArg<menu_types::item_wheel_data_t>(m_item_wheel_entry) = {SIZE_MAX};
     }
 }

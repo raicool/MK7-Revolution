@@ -44,6 +44,8 @@ namespace base
         // Naked hooks
         static NAKED void Item_GetNumInItemType_0x8();
         static NAKED void Item_GetExtraItemNum_0x8();
+        static NAKED void Item_ItemDirector_calcKeyInputEachPlayer_0x78();
+        static NAKED void Item_ItemDirector_calcKeyInputEachPlayer_0xE8();
         static NAKED void Kart_VehicleReact_calcReact_0x20();
         static NAKED void Net_NetworkEventModule_calc_0xB4();
         static NAKED void RaceSys_ModeManagerRace_calcCountDown_0x18();

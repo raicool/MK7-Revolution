@@ -54,6 +54,13 @@ namespace base
 				}
 				item_rain;
 
+				struct item_rapidfire
+				{
+					size_t mode{ 1 };
+					u32 delay{ 5 };
+				}
+				item_rapidfire;
+
 				std::set<Item::eItemSlot> item_wheel
 				{
 					Item::eItemSlot::Banana,
