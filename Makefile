@@ -101,13 +101,13 @@ export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L $(dir)/lib)
 all: $(BUILD)
 
 $(BUILD):
-	@[ -d $@ ] || mkdir -p $@
-	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+    @[ -d $@ ] || mkdir -p $@
+    @$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 #---------------------------------------------------------------------------------
 clean:
-	@echo clean ... 
-	@rm -fr $(BUILD) $(OUTPUT).3gx $(OUTPUT).elf
+    @echo clean ... 
+    @rm -fr $(BUILD) $(OUTPUT).3gx $(OUTPUT).elf
 
 re: clean all
 
@@ -127,15 +127,15 @@ $(OUTPUT).3gx : $(OFILES)
 #---------------------------------------------------------------------------------
 %.bin.o	:	%.bin
 #---------------------------------------------------------------------------------
-	@echo $(notdir $<)
-	@$(bin2o)
+    @echo $(notdir $<)
+    @$(bin2o)
 
 #---------------------------------------------------------------------------------
 #.PRECIOUS: %.elf
 %.3gx: %.elf
 #---------------------------------------------------------------------------------
-	@echo creating $(notdir $@)
-	@3gxtool -s $(word 1, $^) $(TOPDIR)/$(PLGINFO) $@
+    @echo creating $(notdir $@)
+    @3gxtool -d -s $(word 1, $^) $(TOPDIR)/$(PLGINFO) $@
 
 -include $(DEPENDS)
 
