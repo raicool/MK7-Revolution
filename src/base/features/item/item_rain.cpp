@@ -45,9 +45,9 @@ namespace base
                         {
                             switch (item_rain.shape)
                             {
-                            case 0:
+                            case decltype(item_rain.shape)::Square:
                                 return sead::Vector3f{utils::random_f32(-item_rain.width, item_rain.width), item_rain.height, utils::random_f32(-item_rain.width, item_rain.width)};
-                            case 1:
+                            case decltype(item_rain.shape)::Circle:
                                 auto const radius = std::sqrt(utils::random_f32()) * item_rain.width;
                                 auto const angle = utils::random_f32(-std::numbers::pi, std::numbers::pi);
                                 return sead::Vector3f{radius * std::cos(angle), item_rain.height, radius * std::sin(angle)};

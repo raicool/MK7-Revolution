@@ -19,8 +19,8 @@ namespace base
 
             switch (item_rapidfire.mode)
             {
-                case 0: is_down = CTRPluginFramework::Controller::IsKeyDown(CTRPluginFramework::Key::X); break;
-                case 1: is_down = CTRPluginFramework::Controller::IsKeyDown(CTRPluginFramework::Key::L); break;
+                case decltype(item_rapidfire.mode)::X: is_down = CTRPluginFramework::Controller::IsKeyDown(CTRPluginFramework::Key::X); break;
+                case decltype(item_rapidfire.mode)::L: is_down = CTRPluginFramework::Controller::IsKeyDown(CTRPluginFramework::Key::L); break;
             }
 
             auto &count = GetArg<menu_types::item_rapidfire_data_t>(g_menu->m_item_rapidfire_entry)->count;

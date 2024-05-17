@@ -13,10 +13,14 @@ namespace base
 	{
 		if (g_menu->m_instant_miniturbo_entry->IsActivated() && _this->m_vehicle->m_is_master && !_this->m_vehicle->m_is_net_recv)
 			if (_this->m_vehicle->m_miniturbo_charge > 0)
-				switch (g_settings.m_options.kart.instant_miniturbo)
+			{
+				auto const &instant_miniturbo = g_settings.m_options.kart.instant_miniturbo;
+
+				switch (instant_miniturbo.type)
 				{
-					case 0: _this->m_vehicle->m_miniturbo_charge = *g_pointers->m_miniturbo_blue_threshold; break;
-					case 1: _this->m_vehicle->m_miniturbo_charge = *g_pointers->m_miniturbo_red_threshold; break;
+					case decltype(instant_miniturbo.type)::Blue: _this->m_vehicle->m_miniturbo_charge = *g_pointers->m_miniturbo_blue_threshold; break;
+					case decltype(instant_miniturbo.type)::Red: _this->m_vehicle->m_miniturbo_charge = *g_pointers->m_miniturbo_red_threshold; break;
 				}
+			}
 	}
 }

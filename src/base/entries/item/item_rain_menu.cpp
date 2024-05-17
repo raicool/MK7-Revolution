@@ -16,7 +16,6 @@ namespace base
 		keyboard.IsHexadecimal(false);
 
 		auto const items = std::to_array({ Item::eItemType::KouraG, Item::eItemType::KouraR, Item::eItemType::Banana, Item::eItemType::Kinoko, Item::eItemType::Star, Item::eItemType::KouraB, Item::eItemType::Bomhei, Item::eItemType::Gesso, Item::eItemType::Flower });
-		auto const shapes = std::to_array({ "Square", "Circle" });
 
 		auto &item_rain = g_settings.m_options.item.item_rain;
 
@@ -31,7 +30,7 @@ namespace base
 				std::format("Multi ({})", menu::s_toggles[item_rain.multi]),
 				std::format("Speed ({}, {})", menu::s_toggles[item_rain.speed.first], item_rain.speed.second),
                 std::format("Delay ({})", item_rain.delay),
-				std::format("Shape ({})", shapes.at(item_rain.shape)),
+				std::format("Shape ({})", magic_enum::enum_name(item_rain.shape)),
 				std::format("Height ({})", item_rain.height),
 				std::format("Width ({})", item_rain.width)
 			});
@@ -90,7 +89,7 @@ namespace base
 					break;
 				}
                 case 4: keyboard.Open(item_rain.delay, item_rain.delay); break;
-				case 5: if (++item_rain.shape >= shapes.size()) item_rain.shape = 0; break;
+				case 5: item_rain.shape = magic_enum::enum_value<decltype(item_rain.shape)>((magic_enum::enum_underlying(item_rain.shape) + 1) % magic_enum::enum_count<decltype(item_rain.shape)>()); break;
 			    case 6: keyboard.Open(item_rain.height, item_rain.height); break;
 				case 7: keyboard.Open(item_rain.width, item_rain.width); break;
 			}

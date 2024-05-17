@@ -2,7 +2,8 @@
 
 #include <base/settings.hpp>
 
-#include <array>
+#include <magic_enum/magic_enum.hpp>
+
 #include <format>
 
 namespace base
@@ -12,8 +13,6 @@ namespace base
 		auto keyboard = CTRPluginFramework::Keyboard(entry->Name());
 		keyboard.DisplayTopScreen = true;
 
-		auto const types = std::to_array({ "Blue", "Red" });
-
 		auto &instant_miniturbo = g_settings.m_options.kart.instant_miniturbo;
 
 		int choice;
@@ -22,14 +21,14 @@ namespace base
 		{
 			keyboard.Populate(std::vector<std::string>
 			{
-				std::format("Type: {}", types[instant_miniturbo])
+				std::format("Type: {}", magic_enum::enum_name(instant_miniturbo.type))
 			});
 
 			choice = keyboard.Open();
 
 			switch (choice)
 			{
-				case 0: if (++instant_miniturbo >= types.size()) instant_miniturbo = 0; break;
+				case 0: instant_miniturbo.type = magic_enum::enum_value<decltype(instant_miniturbo.type)>((magic_enum::enum_underlying(instant_miniturbo.type) + 1) % magic_enum::enum_count<decltype(instant_miniturbo.type)>()); break;
 			}
 		}
 		while (choice >= 0);

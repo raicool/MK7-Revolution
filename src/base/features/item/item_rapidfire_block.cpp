@@ -11,10 +11,12 @@ namespace base
 
         if (g_menu->m_item_rapidfire_entry->IsActivated())
         {
-            switch (g_settings.m_options.item.item_rapidfire.mode)
+            auto const &item_rapidfire = g_settings.m_options.item.item_rapidfire;
+
+            switch (item_rapidfire.mode)
             {
-                case 0: hold.resetBit(sead::Controller::cPadIdx_X); break;
-                case 1: hold.resetBit(sead::Controller::cPadIdx_L); break;
+                case decltype(item_rapidfire.mode)::X: hold.resetBit(sead::Controller::cPadIdx_X); break;
+                case decltype(item_rapidfire.mode)::L: hold.resetBit(sead::Controller::cPadIdx_L); break;
             }
         }
 

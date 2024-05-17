@@ -48,7 +48,7 @@ namespace base
 					bool multi{ false };
 					std::pair<bool, float> speed{ true, 64.f };
 					u32 delay{ 15 };
-					size_t shape{ 0 };
+					enum class shape : u8 { Square, Circle, } shape{ shape::Square };
 					float height{ 128.f };
 					float width{ 256.f };
 				}
@@ -56,7 +56,7 @@ namespace base
 
 				struct item_rapidfire
 				{
-					size_t mode{ 1 };
+					enum class mode : u8 { X, L, } mode{ mode::L };
 					u32 delay{ 5 };
 				}
 				item_rapidfire;
@@ -82,7 +82,11 @@ namespace base
 
 			struct kart
 			{
-				size_t instant_miniturbo{ 1 };
+				struct instant_miniturbo
+				{
+					enum class type : u8 { Blue, Red, } type{ type::Red };
+				}
+				instant_miniturbo;
 
 				bool intangibility{ true };
 
