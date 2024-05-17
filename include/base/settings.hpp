@@ -22,6 +22,12 @@ namespace base
 		{
 			struct item
 			{
+				struct item_drop
+				{
+					enum class mode : u8 { Drop, Pop, } mode{ mode::Pop };
+				}
+				item_drop;
+
 				std::set<Item::eItemType> item_hang
 				{
 					Item::eItemType::KouraB,

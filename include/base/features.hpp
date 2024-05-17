@@ -16,8 +16,8 @@ namespace base
 		struct item
 		{
 			static bool blue_shell_battle_crash_fix(Item::ItemObjKouraR *);
+			static void item_drop(Item::ItemObjBase *);
 			static bool item_hang(Item::ItemObjBase *);
-			static void drop_items(Item::ItemObjBase *);
 			static s32 item_limiters_extra_num(Item::eItemType);
 			static s32 item_limiters_num(Item::eItemType);
 			static void item_rain(Item::KartItem *);

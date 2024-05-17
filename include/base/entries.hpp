@@ -8,6 +8,7 @@ namespace base
 	{
 		struct item
 		{
+			static void item_drop_menu(CTRPluginFramework::MenuEntry *);
 			static void item_hang_menu(CTRPluginFramework::MenuEntry *);
 			static void item_limiters_menu(CTRPluginFramework::MenuEntry *);
 			static void item_rain_menu(CTRPluginFramework::MenuEntry *);

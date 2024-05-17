@@ -80,6 +80,11 @@ namespace base
 			m_Kart_VehicleReact_calcReact_0x20 = hnd.add(0x1E8).jmp().add(0x18).jmp().add(0x20).as<decltype(m_Kart_VehicleReact_calcReact_0x20)>();
 		});
 
+		batch.add("Item::ItemDirector::drop_Equip", "70 40 2D E9 00 40 A0 E1 DC 00 9F E5 01 50 A0 E1", [this](memory::handle handle)
+		{
+			m_Item_ItemDirector_dropEquip = reinterpret_cast<decltype(m_Item_ItemDirector_dropEquip)>(handle.as<void *>());
+		});
+
 		batch.add("Item::ItemObjDirectorBase::_emitItemImpl", "F0 43 2D E9 1C D0 4D E2 01 40 A0 E1 02 60 A0 E1", [this](memory::handle handle)
 		{
 			m_Item_ItemObjDirectorBase_emitItemImpl = reinterpret_cast<decltype(m_Item_ItemObjDirectorBase_emitItemImpl)>(handle.as<void *>());

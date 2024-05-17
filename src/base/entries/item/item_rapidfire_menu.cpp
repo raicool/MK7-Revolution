@@ -14,8 +14,6 @@ namespace base
 		keyboard.DisplayTopScreen = true;
 		keyboard.IsHexadecimal(false);
 
-        auto const modes = std::to_array({ "X", "L" });
-
         auto &item_rapidfire = g_settings.m_options.item.item_rapidfire;
 
         int choice;
