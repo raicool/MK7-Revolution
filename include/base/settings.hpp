@@ -31,13 +31,13 @@ namespace base
 				std::set<Item::eItemType> item_hang
 				{
 					Item::eItemType::KouraB,
-					Item::eItemType::Flower
+					Item::eItemType::Flower,
 				};
 
 				std::map<Item::eItemType, std::pair<bool, u32>> item_limiters
 				{
 					{ Item::eItemType::KouraB, { true, 8 } },
-					{ Item::eItemType::Bomhei, { true, 32 } }
+					{ Item::eItemType::Bomhei, { true, 32 } },
 				};
 
 				struct item_rain
@@ -48,7 +48,7 @@ namespace base
 						Item::eItemType::KouraR,
 						Item::eItemType::Banana,
 						Item::eItemType::Kinoko,
-						Item::eItemType::Star
+						Item::eItemType::Star,
 					};
 					bool owned{ true };
 					bool multi{ false };
