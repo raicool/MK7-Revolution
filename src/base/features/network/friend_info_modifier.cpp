@@ -1,12 +1,11 @@
 #include <base/features.hpp>
 
+#include <base/notifier.hpp>
 #include <base/menu.hpp>
 #include <base/settings.hpp>
 #include <base/utils.hpp>
 
 #include <Net/NetworkFriendsManager.hpp>
-
-#include <format>
 
 namespace base
 {
@@ -29,7 +28,7 @@ namespace base
                 }
 
                 if (friend_info_modifier.principal_id.notify)
-                    CTRPluginFramework::OSD::Notify(std::format("{} (Principal ID): {:X}", g_menu->m_friend_info_modifier_entry->Name(), _this->m_my_principal_id));
+                    g_notifier.send("{} (Principal ID): {:X}", g_menu->m_friend_info_modifier_entry->Name(), _this->m_my_principal_id);
             }
         }
     }
