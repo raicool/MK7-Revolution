@@ -130,6 +130,11 @@ namespace base
 			m_Net_NetworkEventModule_calc_0xB4 = handle.add(0xB4).as<decltype(m_Net_NetworkEventModule_calc_0xB4)>();
 		});
 
+		batch.add("Net::NetworkFriendsManager::updateFriendInfo", "F8 40 2D E9 0A 4A 80 E2 00 50 A0 E1 29 4E 84 E2", [this](memory::handle handle)
+		{
+			m_Net_NetworkFriendsManager_updateFriendInfo = handle.as<decltype(m_Net_NetworkFriendsManager_updateFriendInfo)>();
+		});
+
 		batch.add("RaceSys::LapRankChecker::calcLapPosition_", "F0 4F 2D E9 01 40 A0 E1 00 50 A0 E1 02 8B 2D ED", [this](memory::handle handle)
 		{
 			m_RaceSys_LapRankChecker_calcLapPosition = handle.as<decltype(m_RaceSys_LapRankChecker_calcLapPosition)>();

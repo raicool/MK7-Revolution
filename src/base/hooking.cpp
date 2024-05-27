@@ -22,6 +22,7 @@ namespace base
 		m_Kart_VehicleReact_reactAccidentCommon_hook("Kart::VehicleReact::reactAccidentCommon", g_pointers->m_Kart_VehicleReact_reactAccidentCommon, reinterpret_cast<void *>(&hooks::Kart_VehicleReact_reactAccidentCommon)),
 		m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived_hook("Net::NetworkDataManager<Net::NetworkSystemSendFormat>::onReceived", g_pointers->m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived, reinterpret_cast<void *>(&hooks::Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived)),
 		m_Net_NetworkEngine_sendUnreliableCore_hook("Net::NetworkEngine::sendUnreliableCore", g_pointers->m_Net_NetworkEngine_sendUnreliableCore, reinterpret_cast<void *>(&hooks::Net_NetworkEngine_sendUnreliableCore)),
+		m_Net_NetworkFriendsManager_updateFriendInfo_hook("Net::NetworkFriendsManager::updateFriendInfo", g_pointers->m_Net_NetworkFriendsManager_updateFriendInfo, reinterpret_cast<void *>(&hooks::Net_NetworkFriendsManager_updateFriendInfo)),
 		m_RaceSys_LapRankChecker_calcLapPosition_hook("RaceSys::LapRankChecker::calcLapPosition_", g_pointers->m_RaceSys_LapRankChecker_calcLapPosition, reinterpret_cast<void *>(&hooks::RaceSys_LapRankChecker_calcLapPosition)),
 		m_System_KDPadInputer_calcInput_hook("System::KDPadInputer::calcInput", g_pointers->m_System_KDPadInputer_calcInput, reinterpret_cast<void *>(&hooks::System_KDPadInputer_calcState)),
 
@@ -67,6 +68,7 @@ namespace base
 		m_Kart_VehicleReact_reactAccidentCommon_hook.enable();
 		m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived_hook.enable();
 		m_Net_NetworkEngine_sendUnreliableCore_hook.enable();
+		m_Net_NetworkFriendsManager_updateFriendInfo_hook.enable();
 		m_RaceSys_LapRankChecker_calcLapPosition_hook.enable();
 		m_System_KDPadInputer_calcInput_hook.enable();
 
@@ -95,6 +97,7 @@ namespace base
 
 		m_System_KDPadInputer_calcInput_hook.disable();
 		m_RaceSys_LapRankChecker_calcLapPosition_hook.disable();
+		m_Net_NetworkFriendsManager_updateFriendInfo_hook.disable();
 		m_Net_NetworkEngine_sendUnreliableCore_hook.disable();
 		m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived_hook.disable();
 		m_Kart_VehicleReact_reactAccidentCommon_hook.disable();

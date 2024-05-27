@@ -113,6 +113,19 @@ namespace base
 			{
 				u32 event_frame_modifier{ 2 };
 
+				struct friend_info_modifier
+				{
+					struct principal_id
+					{
+						bool enabled{ false };
+						bool notify{ true };
+						enum class mode : u8 { Value, Random, } mode{ mode::Value };
+						u32 value{ 1 };
+					}
+					principal_id;
+				}
+				friend_info_modifier;
+
 				struct protections
 				{
 					struct item

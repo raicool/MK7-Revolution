@@ -46,6 +46,7 @@ SOURCES 	:= 	src \
 				src/base/hooks/Net/NetworkDataManager \
 				src/base/hooks/Net/NetworkEngine \
 				src/base/hooks/Net/NetworkEventModule \
+				src/base/hooks/Net/NetworkFriendsManager \
 				src/base/hooks/RaceSys/LapRankChecker \
 				src/base/hooks/RaceSys/ModeManagerRace \
 				src/base/hooks/System/KDPadInputer \

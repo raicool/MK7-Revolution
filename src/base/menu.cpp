@@ -42,6 +42,7 @@ namespace base
         m_invisibility_entry(new MenuEntry("Invisibility", DEFAULT_ENTRY)),
         m_no_disconnect_entry(new MenuEntry("No Disconnect", DEFAULT_ENTRY)),
         m_event_frame_modifier_entry(new MenuEntry("Event Frame Modifier", DEFAULT_ENTRY, entries::network::event_frame_modifier_menu)),
+        m_friend_info_modifier_entry(new MenuEntry("Friend Info Modifier", DEFAULT_ENTRY, entries::network::friend_info_modifier_menu)),
         m_protections_entry(new MenuEntry("Protections", DEFAULT_ENTRY, entries::network::protections_menu))
     {
         m_plugin_menu->SynchronizeWithFrame(true);
@@ -107,6 +108,7 @@ namespace base
             *network += m_invisibility_entry;
             *network += m_no_disconnect_entry;
             *network += m_event_frame_modifier_entry;
+            *network += m_friend_info_modifier_entry;
             *network += m_protections_entry;
 
             *m_plugin_menu += network;

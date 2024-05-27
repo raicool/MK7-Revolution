@@ -50,10 +50,11 @@ namespace base
 
 		struct network
 		{
-			static void kart_warp(Kart::NetData *);
+			static u32 event_frame_modifier(Net::NetworkEventModule::Slot *);
+			static void friend_info_modifier(Net::NetworkFriendsManager *);
 			static void high_data_rate(u32 *);
 			static void invisibility(Kart::NetData *);
-			static u32 event_frame_modifier(Net::NetworkEventModule::Slot *);
+			static void kart_warp(Kart::NetData *);
 			static void no_disconnect(RaceSys::LapRankChecker *);
 			static bool protections_item(Item::ItemDirector *, Net::NetworkItemEventDataMgr::SlotData *);
 			static bool protections_system_info(Net::NetworkReceivedInfo *);

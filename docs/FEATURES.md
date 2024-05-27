@@ -1,5 +1,5 @@
 ## Features
-The following document shows a [Tree](https://tree.nathanfriend.io/?s=(%27opt7s!(%27fancy!true~fullPath4~trailingSlash4~rootDot4)~8(%278%27Revolut7.IAm0Wheel0Rapid-Fire0Drop0Hang0Rain0LimiArs*Zero%20GravityQhells*Blu5Shell%20Battl5Crash%20Fix.KartJvinc2Intang2UStatuses6Respawn6Mini-Turbo.Mode*Driv5DuringQync.Network*UWarp*HighOata%20RaAJvis2NoOisconnect*Even3Fram5Modifier*ProAct7s%27)~vers7!%271%27)*.9.%5Cn90*IAm%202ibility*3t%204!false5e%206Jstan37ion8source!9%20%20AteJ*InO%20DQ%20SUKar3%01UQOJA987654320.*) view of the current features.
+The following document shows a [Tree](https://tree.nathanfriend.io/?s=(%27opt9s!(%27fancy!true~fullPath5~trailingSlash5~rootDot5)~A(%27A%27Revolut9.IOm0Wheel0Rapid-Fire0Drop0Hang0Rain0LimiOrs*Zero%20Gravity6s*Blue6%20Battle%20Crash%20Fix.KartQvinc2Intang2VStatuses7Respawn7Mini-Turbo.Mode*Drive8uringUync.Network*VWarp*High8ata%20RaOQvis2No8isconnect*Even3Frame4Friend%20Info4ProOct9s%27)~vers9!%271%27)*.J.%5CnJ0*IOm%202ibility*3t%204%20Modifier*5!false6Uhell7Qstan38%20D9ionAsource!J%20%20OteQ*InU%20SVKar3%01VUQOJA987654320.*) view of the current features.
 ```
 Revolution
 ├── Item
@@ -25,5 +25,6 @@ Revolution
     ├── Invisibility
     ├── No Disconnect
     ├── Event Frame Modifier
+    ├── Friend Info Modifier
     └── Protections
 ```

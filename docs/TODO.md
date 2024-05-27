@@ -44,7 +44,6 @@ The following document shows a list of ideas that may get implemented in the fut
 - [x] Invisibility
 	- [ ] Modes (stealth, velocity, ...)
 	- [ ] Indicator
-- [ ] Principal ID Modifier (PID, FC, randomizer)
 - [ ] Principal ID Joiner
 - [ ] Force Replacement
 - [ ] VR Extender Fix

@@ -13,6 +13,11 @@
 
 namespace base::utils
 {
+    u32 random_u32()
+    {
+        return (*g_pointers->m_random)->getU32();
+    }
+
     u32 random_u32(u32 max)
     {
         return (*g_pointers->m_random)->getU32(max);

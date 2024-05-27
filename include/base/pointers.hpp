@@ -45,6 +45,7 @@ namespace base
 		void *m_Net_NetworkDataManager_Net_NetworkSystemSendFormat_onReceived;
 		void *m_Net_NetworkEngine_sendUnreliableCore;
 		void *m_Net_NetworkEventModule_calc_0xB4;
+		void *m_Net_NetworkFriendsManager_updateFriendInfo;
 		void *m_RaceSys_LapRankChecker_calcLapPosition;
 		void *m_RaceSys_ModeManagerRace_calcCountDown_0x18;
 		void *m_System_KDPadInputer_calcInput;

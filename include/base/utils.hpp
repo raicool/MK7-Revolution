@@ -6,6 +6,7 @@
 
 namespace base::utils
 {
+    u32 random_u32();
     u32 random_u32(u32 max);
     f32 random_f32();
     f32 random_f32(f32 min, f32 max);
