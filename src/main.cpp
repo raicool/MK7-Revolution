@@ -1,5 +1,6 @@
 #include <3ds.h>
 
+#include <base/notifier.hpp>
 #include <base/files.hpp>
 #include <base/logger.hpp>
 #include <base/settings.hpp>
@@ -13,7 +14,7 @@ namespace CTRPluginFramework
 
     int main()
     {
-        OSD::Notify(NAME "!");
+        g_notifier.send(NAME "!");
 
         auto files_instance = std::make_unique<files>();
         g_logger.info("Greetings from " NAME "!");
@@ -33,7 +34,7 @@ namespace CTRPluginFramework
         g_hooking->enable();
         g_logger.info("Hooking enabled.");
 
-        OSD::Notify("Enjoy. :)");
+        g_notifier.send("Enjoy. :)");
         g_menu->run();
 
         g_hooking->disable();
