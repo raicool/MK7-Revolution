@@ -6,6 +6,8 @@
 
 #include <Net/NetworkFriendsManager.hpp>
 
+#include <format>
+
 namespace base
 {
     void features::network::friend_info_modifier(Net::NetworkFriendsManager *_this)
