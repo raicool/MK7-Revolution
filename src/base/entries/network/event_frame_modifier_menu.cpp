@@ -20,14 +20,14 @@ namespace base
 		{
             keyboard.Populate(std::vector<std::string>
 			{
-				std::format("Value ({})", event_frame_modifier)
+				std::format("Value ({})", event_frame_modifier.value)
 			});
 
             choice = keyboard.Open();
 
             switch (choice)
 			{
-                case 0: keyboard.Open(event_frame_modifier, event_frame_modifier); break;
+                case 0: keyboard.Open(event_frame_modifier.value, event_frame_modifier.value); break;
             }
         }
         while (choice >= 0);

@@ -20,14 +20,14 @@ namespace base
 		{
 			keyboard.Populate(std::vector<std::string>
 			{
-				std::format("Invert: {}", menu::s_toggles[intangibility])
+				std::format("Invert: {}", menu::s_toggles[intangibility.invert])
 			});
 
 			choice = keyboard.Open();
 
 			switch (choice)
 			{
-				case 0: intangibility ^= true; break;
+				case 0: intangibility.invert ^= true; break;
 			}
 		}
 		while (choice >= 0);

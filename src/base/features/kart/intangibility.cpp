@@ -11,7 +11,7 @@ namespace base
     {
         if (g_menu->m_intangibility_entry->IsActivated())
         {
-			if (g_settings.m_options.kart.intangibility)
+			if (g_settings.m_options.kart.intangibility.invert)
             	return _this->m_is_intangible ^ true;
 
 			return true;

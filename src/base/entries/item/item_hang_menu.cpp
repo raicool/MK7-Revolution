@@ -23,16 +23,16 @@ namespace base
         do
 		{
             auto options = std::vector<std::string>();
-            std::for_each(items.begin(), items.end(), [&](auto const &i) { options.push_back(std::format("{} ({})", magic_enum::enum_name(i), menu::s_toggles[item_hang.contains(i)])); });
+            std::for_each(items.begin(), items.end(), [&](auto const &i) { options.push_back(std::format("{} ({})", magic_enum::enum_name(i), menu::s_toggles[item_hang.items.contains(i)])); });
             keyboard.Populate(options);
 
             if (choice = keyboard.Open(); choice < 0)
                 break;
 
-            if (auto const &item = items.at(choice); item_hang.contains(item))
-                item_hang.erase(item);
+            if (auto const &item = items.at(choice); item_hang.items.contains(item))
+                item_hang.items.erase(item);
             else
-                item_hang.emplace(item);
+                item_hang.items.emplace(item);
         }
         while (choice >= 0);
     }

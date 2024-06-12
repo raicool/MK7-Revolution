@@ -12,7 +12,7 @@ namespace base
         auto frame = _this->frame;
 
         if (g_menu->m_event_frame_modifier_entry->IsActivated())
-            frame -= FRAME - g_settings.m_options.network.event_frame_modifier;
+            frame -= FRAME - g_settings.m_options.network.event_frame_modifier.value;
 
         return frame;
     }

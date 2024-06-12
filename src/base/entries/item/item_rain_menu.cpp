@@ -28,7 +28,7 @@ namespace base
 				std::format("Items ({})", item_rain.items.size()),
 				std::format("Owned ({})", menu::s_toggles[item_rain.owned]),
 				std::format("Multi ({})", menu::s_toggles[item_rain.multi]),
-				std::format("Speed ({}, {})", menu::s_toggles[item_rain.speed.first], item_rain.speed.second),
+				std::format("Speed ({}, {})", menu::s_toggles[item_rain.speed.enabled], item_rain.speed.value),
                 std::format("Delay ({})", item_rain.delay),
 				std::format("Shape ({})", magic_enum::enum_name(item_rain.shape)),
 				std::format("Height ({})", item_rain.height),
@@ -69,8 +69,8 @@ namespace base
 					{
 						keyboard.Populate(std::vector<std::string>
 						{
-							std::format("Status ({})", menu::s_toggles[item_rain.speed.first]),
-							std::format("Value ({})", item_rain.speed.second)
+							std::format("Status ({})", menu::s_toggles[item_rain.speed.enabled]),
+							std::format("Value ({})", item_rain.speed.value)
 						});
 
 						choice = keyboard.Open();
@@ -80,8 +80,8 @@ namespace base
 
 						switch (choice)
 						{
-							case 0: item_rain.speed.first ^= true; break;
-							case 1: keyboard.Open(item_rain.speed.second, item_rain.speed.second); break;
+							case 0: item_rain.speed.enabled ^= true; break;
+							case 1: keyboard.Open(item_rain.speed.value, item_rain.speed.value); break;
 						}
 					}
 

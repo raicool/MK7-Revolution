@@ -29,8 +29,8 @@ namespace base
             auto options = std::vector<std::string>();
             std::for_each(items.begin(), items.end(), [&](auto const &i)
             {
-                if (item_limiters.contains(i))
-                    options.push_back(std::format("{} ({}, {})", magic_enum::enum_name(i), menu::s_toggles[item_limiters.at(i).first], item_limiters.at(i).second));
+                if (item_limiters.items.contains(i))
+                    options.push_back(std::format("{} ({}, {})", magic_enum::enum_name(i), menu::s_toggles[item_limiters.items.at(i).enabled], item_limiters.items.at(i).amount));
                 else
                     options.push_back(std::format("{}", magic_enum::enum_name(i)));
             });
@@ -40,19 +40,17 @@ namespace base
                 break;
 
             auto const &item = items.at(choice);
-
-            if (!item_limiters.contains(item))
-                item_limiters.emplace(std::make_pair(item, std::make_pair(false, 0)));
+            item_limiters.items.try_emplace(item);
 
             while (true)
 			{
-                auto &e = item_limiters.at(item);
+                auto &e = item_limiters.items.at(item);
 
                 keyboard.GetMessage() = std::format("{}\n{}", entry->Name(), magic_enum::enum_name(item));
                 keyboard.Populate(std::vector<std::string>
                 {
-                    std::format("{}", menu::s_toggles[e.first]),
-                    std::format("{}", e.second)
+                    std::format("{}", menu::s_toggles[e.enabled]),
+                    std::format("{}", e.amount)
                 });
 
                 if (choice = keyboard.Open(); choice < 0)
@@ -60,8 +58,8 @@ namespace base
 
                 switch (choice)
                 {
-                    case 0: e.first ^= true; break;
-                    case 1: keyboard.Open(e.second, e.second); break;
+                    case 0: e.enabled ^= true; break;
+                    case 1: keyboard.Open(e.amount, e.amount); break;
                 }
             }
 

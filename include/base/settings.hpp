@@ -28,17 +28,26 @@ namespace base
 				}
 				item_drop;
 
-				std::set<Item::eItemType> item_hang
+				struct item_hang
 				{
-					Item::eItemType::KouraB,
-					Item::eItemType::Flower,
-				};
+					std::set<Item::eItemType> items
+					{
+						Item::eItemType::KouraB,
+						Item::eItemType::Flower,
+					};
+				}
+				item_hang;
 
-				std::map<Item::eItemType, std::pair<bool, u32>> item_limiters
+				struct item_limiters
 				{
-					{ Item::eItemType::KouraB, { true, 8 } },
-					{ Item::eItemType::Bomhei, { true, 32 } },
-				};
+					struct items_value { bool enabled{ false }; u32 amount{ 0 }; };
+					std::map<Item::eItemType, items_value> items
+					{
+						{ Item::eItemType::KouraB, { true, 8 } },
+						{ Item::eItemType::Bomhei, { true, 32 } },
+					};
+				}
+				item_limiters;
 
 				struct item_rain
 				{
@@ -52,7 +61,7 @@ namespace base
 					};
 					bool owned{ true };
 					bool multi{ false };
-					std::pair<bool, float> speed{ true, 64.f };
+					struct speed { bool enabled; float value; } speed{ true, 64.f };
 					u32 delay{ 15 };
 					enum class shape : u8 { Square, Circle, } shape{ shape::Square };
 					float height{ 128.f };
@@ -67,22 +76,26 @@ namespace base
 				}
 				item_rapidfire;
 
-				std::set<Item::eItemSlot> item_wheel
+				struct item_wheel
 				{
-					Item::eItemSlot::Banana,
-					Item::eItemSlot::KouraG,
-					Item::eItemSlot::KouraR,
-					Item::eItemSlot::Kinoko,
-					Item::eItemSlot::Bomhei,
-					Item::eItemSlot::Gesso,
-					Item::eItemSlot::KouraB,
-					Item::eItemSlot::Star,
-					Item::eItemSlot::Killer,
-					Item::eItemSlot::Thunder,
-					Item::eItemSlot::Flower,
-					Item::eItemSlot::Tail,
-					Item::eItemSlot::Seven,
-				};
+					std::set<Item::eItemSlot> items
+					{
+						Item::eItemSlot::Banana,
+						Item::eItemSlot::KouraG,
+						Item::eItemSlot::KouraR,
+						Item::eItemSlot::Kinoko,
+						Item::eItemSlot::Bomhei,
+						Item::eItemSlot::Gesso,
+						Item::eItemSlot::KouraB,
+						Item::eItemSlot::Star,
+						Item::eItemSlot::Killer,
+						Item::eItemSlot::Thunder,
+						Item::eItemSlot::Flower,
+						Item::eItemSlot::Tail,
+						Item::eItemSlot::Seven,
+					};
+				}
+				item_wheel;
 			}
 			item;
 
@@ -94,7 +107,11 @@ namespace base
 				}
 				instant_miniturbo;
 
-				bool intangibility{ true };
+				struct intangibility
+				{
+					bool invert{ true };
+				}
+				intangibility;
 
 				struct kart_statuses
 				{
@@ -111,7 +128,11 @@ namespace base
 
 			struct network
 			{
-				u32 event_frame_modifier{ 2 };
+				struct event_frame_modifier
+				{
+					u32 value{ 2 };
+				}
+				event_frame_modifier;
 
 				struct friend_info_modifier
 				{
