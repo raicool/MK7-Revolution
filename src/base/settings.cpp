@@ -20,8 +20,11 @@ namespace base
 	{
 		if (g_files->m_settings.Clear() == File::OPResult::SUCCESS)
 		{
-			auto dump = glz::write_json(m_options);
-			return g_files->m_settings.Write(dump.data(), dump.size()) == File::OPResult::SUCCESS;
+			if (auto const expect = glz::write_json(m_options); expect.has_value())
+			{
+				auto const dump = expect.value();
+				return g_files->m_settings.Write(dump.data(), dump.size()) == File::OPResult::SUCCESS;
+			}
 		}
 
 		return false;
@@ -31,13 +34,16 @@ namespace base
 	{
 		if (g_files->m_settings.Clear() == File::OPResult::SUCCESS)
 		{
-			auto opts = options{};
-			auto dump = glz::write_json(opts);
-			if (g_files->m_settings.Write(dump.data(), dump.size()) == File::OPResult::SUCCESS)
+			auto const opts = options{};
+			if (auto const expect = glz::write_json(opts); expect.has_value())
 			{
-				m_options = opts;
-				g_logger.debug("Settings reset.");
-				return true;
+				auto const dump = expect.value();
+				if (g_files->m_settings.Write(dump.data(), dump.size()) == File::OPResult::SUCCESS)
+				{
+					m_options = opts;
+					g_logger.debug("Settings reset.");
+					return true;
+				}
 			}
 		}
 
@@ -46,25 +52,21 @@ namespace base
 
 	bool settings::load_impl()
 	{
-		auto result = false;
-
-		if (auto size = g_files->m_settings.GetSize(); size > 0)
+		if (auto const size = g_files->m_settings.GetSize(); size > 0)
 		{
-			if (auto buffer = new char[size]; buffer != nullptr)
+			if (auto const buffer = std::make_unique<char []>(size))
 			{
-				if (g_files->m_settings.Read(buffer, size) == File::OPResult::SUCCESS)
+				if (g_files->m_settings.Read(buffer.get(), size) == File::OPResult::SUCCESS)
 				{
-					if (auto data = glz::read_json<options>(buffer))
+					if (auto const expect = glz::read_json<options>(buffer.get()); expect.has_value())
 					{
-						m_options = data.value();
-						result = true;
+						m_options = expect.value();
+						return true;
 					}
 				}
-
-				delete[] buffer;
 			}
 		}
 
-        return result;
+        return false;
 	}
 }
