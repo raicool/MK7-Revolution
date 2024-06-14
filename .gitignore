@@ -1,8 +1,11 @@
 # CTRPluginFramework
-build
 *.3gx
 *.elf
+bin/
 
 # Visual Studio Code
 .vscode
 *.code-workspace
+
+# Visual Studio
+.vs/
